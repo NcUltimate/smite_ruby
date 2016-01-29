@@ -3,21 +3,18 @@ module Smite
     attr_reader :data
 
     def initialize(data)
-      @data = data
+      @data = data.each_with_object({}) do |(k, v), obj|
+        obj[ActiveSupport::Inflector.underscore(k)] = v
+      end
     end
 
     def attributes
-      @data.keys.map(&ActiveSupport::Inflector.method(:underscore))
+      @data.keys
     end
 
     def method_missing(method)
-      key = @data.keys.find do |attribute|
-        camel_attr   = ActiveSupport::Inflector.underscore(attribute)
-        camel_method = ActiveSupport::Inflector.underscore(method.to_s)
-        camel_attr == camel_method
-      end
-
-      key ? @data[key] : super
+      camel_method = ActiveSupport::Inflector.underscore(method.to_s)
+      @data[camel_method] || super
     end
   end
 end

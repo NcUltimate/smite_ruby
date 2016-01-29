@@ -1,22 +1,23 @@
 module Smite
   class Game
     class << self
-      attr_reader :client,:lang_code
+      attr_reader :client, :lang_code
 
       def authenticate!(dev_id, auth_key, lang_code = 1)
         @client     = Smite::Client.new(dev_id, auth_key)
         @lang_code  = lang_code
-        self
+        !client.session_id.empty?
       end
 
-      def item(name_or_id)
-        id_to_item[name_or_id] ||
-          id_to_item[name_to_itemid[name_or_id]]
+      def device(name_or_id)
+        devices[device_hash[name_or_id]]
       end
+      alias_method :item, :device
+      alias_method :consumable, :device
+      alias_method :active, :device
 
       def god(name_or_id)
-        id_to_god[name_or_id] ||
-          id_to_god[name_to_godid[name_or_id]]
+        gods[god_hash[name_or_id]]
       end
 
       def match(match_id)
@@ -28,49 +29,39 @@ module Smite
       end
 
       def gods
-        id_to_god.values
+        @gods ||= get_gods.map(&God.method(:new))
+      end
+
+      def devices
+        @devices ||= get_items.map(&Item.method(:new))
       end
 
       def items
-        id_to_item.values
+        @items ||= devices.select(&:item?)
+      end
+
+      def consumables
+        @consumables ||= devices.select(&:consumable?)
+      end
+
+      def actives
+        @actives ||= devices.select(&:active?)
       end
 
       private
 
-      def id_to_item
-        return @id_to_item unless @id_to_item.nil?
-
-        @id_to_item = get_items.map do |item_data|
-          [item_data['ItemId'], Item.new(item_data)]
+      def device_hash
+        @device_hash ||= (0...devices.count).each_with_object({}) do |idx, hash|
+          hash[devices[idx].item_id]      = idx
+          hash[devices[idx].device_name]  = idx
         end
-        @id_to_item = Hash[@id_to_item]
       end
 
-      def id_to_god
-        return @id_to_god unless @id_to_god.nil?
-
-        @id_to_god = get_gods.map do |god_data|
-          [god_data['id'], God.new(god_data)]
+      def god_hash
+        @god_hash ||= (0...gods.count).each_with_object({}) do |idx, hash|
+          hash[gods[idx].id]    = idx
+          hash[gods[idx].name]  = idx
         end
-        @id_to_god = Hash[@id_to_god]
-      end
-
-      def name_to_itemid
-        return @name_to_itemid unless @name_to_itemid.nil?
-
-        @name_to_itemid = id_to_item.map do |id, item|
-          [item.device_name, id]
-        end
-        @name_to_itemid = Hash[@name_to_itemid]
-      end
-
-      def name_to_godid
-        return @name_to_godid unless @name_to_godid.nil?
-
-        @name_to_godid = id_to_god.map do |id, god|
-          [god.name, id]
-        end
-        @name_to_godid = Hash[@name_to_godid]
       end
 
       # /getmatchdetails[ResponseFormat]/{developerId}/{signature}/{session}/{timestamp}/{match_id}

@@ -5,7 +5,7 @@ module Smite
     def initialize(client, player_name)
       @client       = client
       @player_name  = player_name
-      @data         = get_player
+      super(get_player)
     end
 
     def friends
@@ -21,7 +21,7 @@ module Smite
     end
 
     def achievements
-      @achievements ||= get_achievements
+      @achievements ||= Achievements.new(get_achievements)
     end
 
     def inspect

@@ -33,6 +33,10 @@ module Smite
       self.class.get(request)
     end
 
+    def valid_session?
+      !!(test_session =~ /successful/i)
+    end
+
     private
 
     def signature(method)
@@ -42,10 +46,6 @@ module Smite
     # current utc timestamp (formatted yyyyMMddHHmmss)
     def timestamp
       Time.now.utc.strftime('%Y%m%d%H%M%S')
-    end
-
-    def valid_session?
-      test_session =~ /successful/i
     end
 
     def request_str(method, params, session)

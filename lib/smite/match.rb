@@ -1,7 +1,10 @@
 module Smite
   class Match < Smite::Object
     def initialize(data)
-      @data = DataTransform.transform(data)
+      super
+      @data = DataTransform.transform_gods(@data)
+      @data = DataTransform.transform_items(@data)
+      @data = DataTransform.transform_match(@data)
     end
 
     def inspect
