@@ -1,15 +1,32 @@
 # Smite API Client for Ruby
 ---
+A simple gem for consuming Smite's API data that includes a lightweight client (Smite::Client) and a slightly heavier object wrapper (Smite::Game)
 1. `gem install smite_ruby`
 2. `require 'smite'`
 
-# Examples --  Smite::Game
+## Examples --  Smite::Game
 ---
 
 ### Creating a session
+A session can be created through `Smite::Client` to manipulate API data directly in its raw form.
+```
+> client = Smite::Client.new(<dev_id>, <auth_key>)
+#<Smite::Client:0x007fca3343c948
+ @auth_key="<auth_key>",
+ @dev_id=<dev_id>,
+ @session_id="<session_id>">
+ 
+> client.test_session
+"This was a successful test with the following parameters added: developer: <dev_id> time: 1/30/2016 6:14:25 PM signature: <signature> session: <session_id>"
+
+> client.get_gods
+(huge amount of json/xml god data)
+```
+
+You can also create a session through `Smite::Game`, which will provide extensive convenience methods for manipulating the data. The rest of this documentation will assume authentication was done in this way.
 ```
 > Smite::Game.authenticate!(<dev_id>, <auth_key>)
-Smite::Game
+true
 ```
 
 ### Finding a player
@@ -49,7 +66,7 @@ Smite::Game
 > Smite::Game.item(7526)
 #<Smite::Item 'Iron Mail'>
 ```
-# Examples --  Smite::Player
+## Examples --  Smite::Player
 ---
 ```
 > player = Smite::Game.player('adapting')
@@ -86,20 +103,17 @@ Smite::Game
  ...]
  ```
  
- ### Listing achievements (WIP)
+### Listing achievements
 ```
- > player.achievements
- {"DoubleKills"=>5275,
- "FirstBloods"=>1430,
- "Id"=>2784051,
- "Name"=>"Adapting",
- "PentaKills"=>21,
- "QuadraKills"=>137,
- "TowerKills"=>5183,
- "TripleKills"=>803,
- "ret_msg"=>nil}
+> achievements = player.achievements
+#<Smite::Achievements 'Adapting'>
+
+> achievements.double_kills
+5280
+> achievements.penta_kills
+21
  ```
-  ### Listing match history
+### Listing match history
 ```
 > player.match_history
 [#<Smite::Match 'Leagues: Conquest' 'Win'>,
@@ -109,8 +123,8 @@ Smite::Game
  #<Smite::Match 'Leagues: Conquest' 'Loss'>,
  #<Smite::Match 'Leagues: Conquest' 'Win'>,
  ... ]
- ```
-# Examples --  Smite::Match
+```
+## Examples --  Smite::Match
 ---
 ```
 > match = player.match_history[0]
@@ -132,7 +146,7 @@ Smite::Game
  > match.killing_spree
  2
  ```
-# Examples --  Smite::God
+## Examples --  Smite::God
 ---
 ```
 > merc = Smite::Game.god('Mercury')
@@ -148,7 +162,7 @@ Smite::Game
 > merc.speed
 375
  ```
-# Examples --  Smite::GodRank
+## Examples --  Smite::GodRank
 ---
 ```
 > rank = player.god_ranks[0]
@@ -163,7 +177,7 @@ Smite::Game
  > rank.worshippers
  4517
   ```
-# Examples --  Smite::Item
+## Examples --  Smite::Item
 ---
 ```
 > bov = Smite::Game.item('Breastplate of Valor')

@@ -1,26 +1,109 @@
 module Smite
   class Client
-    attr_reader :dev_id, :auth_key, :session_id
+    attr_reader :dev_id, :auth_key, :session_id, :format, :lang
     include HTTParty
     base_uri 'http://api.smitegame.com/smiteapi.svc/'
 
-    def initialize(dev_id, auth_key)
+    def initialize(dev_id, auth_key, format = 'json', lang = 1)
       @dev_id     = dev_id
       @auth_key   = auth_key
+      @format     = validate_format(format.downcase)
+      @lang       = lang
       create_session
     end
 
-    # /testsessionjson/{developerId}/{signature}/{session}/{timestamp}
+    def esports_pro_league_details
+      api_call('getmatchdetails')
+    end
+
+    def god_recommended_items(god_id)
+      api_call('getmatchdetails', [god_id, lang])
+    end
+
+    def match_player_details(match_id)
+      api_call('getmatchdetails', [match_id])
+    end
+
+    def match_ids_by_queue(queue, date, hour)
+      api_call('getmatchidsbyqueue', [queue, date, hour])
+    end
+
+    def league_seasons(queue)
+      api_call('getleagueseasons', [queue])
+    end
+
+    def league_leaderboard(quque, tier, season)
+      api_call('getleagueleaderboard', [queue, tier, season])
+    end
+
+    def motd
+      api_call('getmotd')
+    end
+
+    def player_status(player_name)
+      api_call('getplayerstatus', [player_name])
+    end
+
+    def queue_stats(player_name, queue)
+      api_call('getqueuestats', [player_name, queue])
+    end
+
+    def team_details(clan_id)
+      api_call('getteamdetails', [clan_id])
+    end
+
+    def team_players(clan_id)
+      api_call('getteamplayers', [clan_id])
+    end
+
+    def top_matches
+      api_call('gettopmatches')
+    end
+
+    def match_details(match_id)
+      api_call('getmatchdetails', [match_id])
+    end
+
+    def gods
+      api_call('getgods', [lang])
+    end
+
+    def items
+      api_call('getitems', [lang])
+    end
+
+    def achievements(player_id)
+      api_call('getplayerachievements', [player_id])
+    end
+
+    def friends(player_name)
+      api_call('getfriends', [player_name])
+    end
+
+    def god_ranks(player_name)
+      api_call('getgodranks', [player_name])
+    end
+
+    def player(player_name)
+      api_call('getplayer', [player_name])
+    end
+
+    def match_history
+      api_call('getmatchhistory', [player_name])
+    end
+
+    def search_teams(team_name)
+      api_call('searchteams', [team_name])
+    end
+
     def test_session
-      api_call('testsession', [])
+      api_call('testsession')
     end
 
-    # /getdatausedjson/{developerId}/{signature}/{session}/{timestamp}
-    def get_data_used
-      api_call('getdataused', [])
+    def data_used
+      api_call('getdataused')
     end
 
-    # /createsessionjson/{developerId}/{signature}/{timestamp}
     def create_session
       return @session_id if valid_session?
 
@@ -28,16 +111,20 @@ module Smite
       @session_id = response['session_id']
     end
 
-    def api_call(method, params = [], session = true)
-      request = request_str(method, params, session)
-      self.class.get(request)
-    end
-
     def valid_session?
       !!(test_session =~ /successful/i)
     end
 
     private
+
+    def api_call(method, params = [], session = true)
+      request = request_str(method, params, session)
+      self.class.get(request)
+    end
+
+    def validate_format(format)
+      %w(json xml).include?(format) ? format : 'json'
+    end
 
     def signature(method)
       Digest::MD5.hexdigest("#{dev_id}#{method}#{auth_key}#{timestamp}")
@@ -58,7 +145,7 @@ module Smite
 
     def base_str(method)
       signature = signature(method)
-      "/#{method}json/#{dev_id}/#{signature}"
+      "/#{method}#{format}/#{dev_id}/#{signature}"
     end
 
     def param_str(params)

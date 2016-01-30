@@ -1,7 +1,7 @@
 module Smite
   class GodRank < Smite::Object
     def initialize(data)
-      @data = DataTransform.transform_gods(data)
+      super(DataTransform.transform_gods(data))
     end
 
     def level

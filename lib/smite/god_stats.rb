@@ -1,23 +1,20 @@
 module Smite
   class GodStats < Smite::Object
-    attr_reader :name, :item_bonus
-    attr_accessor :level, :items
+    attr_reader :name, :level, :items
     
-    def initialize(god_name, data)
+    def initialize(god_name, data, params = { level: 1 })
       super(data)
-      @name       = god_name
-      @items      = []
-      @level      = 0
-      @item_bonus = default_bonus
+      @name   = god_name
+      @items  = params[:items] || []
+      @level  = (params[:level].to_i - 1) % 20
     end
 
-    def level=(new_level)
-      @level = (new_level.to_i - 1) % 20
+    def at_level(new_level)
+      GodStats.new(name, @data, { level: new_level, items: items })
     end
 
-    def items=(new_items)
-      @items      = new_items
-      @item_bonus = default_bonus
+    def with_items(new_items)
+      GodStats.new(name, @data, { level: level, items: new_items })
     end
 
     def movement_speed
@@ -92,8 +89,9 @@ module Smite
     end
 
     def item_bonus
-      return @item_bonus unless @item_bonus == default_bonus and !items.empty?
+      return @item_bonus unless @item_bonus.nil?
 
+      @item_bonus = default_bonus
       items.map(&:effects).flatten.select do |effect|
         next unless attributes.include?(effect.attribute)
         @item_bonus[effect.attribute.to_sym] += effect.amount

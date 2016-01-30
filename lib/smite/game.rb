@@ -1,11 +1,10 @@
 module Smite
   class Game
     class << self
-      attr_reader :client, :lang_code
+      attr_reader :client
 
-      def authenticate!(dev_id, auth_key, lang_code = 1)
-        @client     = Smite::Client.new(dev_id, auth_key)
-        @lang_code  = lang_code
+      def authenticate!(dev_id, auth_key, format = 'json', lang = 1)
+        @client = Smite::Client.new(dev_id, auth_key, format, lang)
         !client.session_id.empty?
       end
 
@@ -21,7 +20,7 @@ module Smite
       end
 
       def match(match_id)
-        Match.new(match_details(match_id))
+        Match.new(client.match_details(match_id))
       end
 
       def player(player_name)
@@ -29,11 +28,11 @@ module Smite
       end
 
       def gods
-        @gods ||= get_gods.map(&God.method(:new))
+        @gods ||= client.gods.map(&God.method(:new))
       end
 
       def devices
-        @devices ||= get_items.map(&Item.method(:new))
+        @devices ||= client.items.map(&Item.method(:new))
       end
 
       def items
@@ -62,21 +61,6 @@ module Smite
           hash[gods[idx].id]    = idx
           hash[gods[idx].name]  = idx
         end
-      end
-
-      # /getmatchdetails[ResponseFormat]/{developerId}/{signature}/{session}/{timestamp}/{match_id}
-      def match_details(match_id)
-        client.api_call('getmatchdetails', [match_id])
-      end
-
-      # /getgodsjson/{developerId}/{signature}/{session}/{timestamp}/{languageCode}
-      def get_gods
-        client.api_call('getgods', [lang_code])
-      end
-
-      # /getitemsjson/{developerId}/{signature}/{session}/{timestamp}/{languagecode}
-      def get_items
-        client.api_call('getitems', [lang_code])
       end
     end
   end
