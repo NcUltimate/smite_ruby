@@ -13,15 +13,15 @@ module Smite
     end
 
     def esports_pro_league_details
-      api_call('getmatchdetails')
+      api_call('getesportsproleaguedetails')
     end
 
     def god_recommended_items(god_id)
-      api_call('getmatchdetails', [god_id, lang])
+      api_call('getgodrecommendeditems', [god_id, lang])
     end
 
     def match_player_details(match_id)
-      api_call('getmatchdetails', [match_id])
+      api_call('getmatchplayerdetails', [match_id])
     end
 
     def match_ids_by_queue(queue, date, hour)
@@ -32,7 +32,7 @@ module Smite
       api_call('getleagueseasons', [queue])
     end
 
-    def league_leaderboard(quque, tier, season)
+    def league_leaderboard(queue, tier, season)
       api_call('getleagueleaderboard', [queue, tier, season])
     end
 

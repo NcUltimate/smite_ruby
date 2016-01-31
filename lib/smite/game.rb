@@ -9,14 +9,14 @@ module Smite
       end
 
       def device(name_or_id)
-        devices[device_hash[name_or_id]]
+        devices[device_hash[name_or_id.to_s.downcase]]
       end
       alias_method :item, :device
       alias_method :consumable, :device
       alias_method :active, :device
 
       def god(name_or_id)
-        gods[god_hash[name_or_id]]
+        gods[god_hash[name_or_id.to_s.downcase]]
       end
 
       def match(match_id)
@@ -25,6 +25,19 @@ module Smite
 
       def player(player_name)
         Player.new(client, player_name)
+      end
+
+      # role in %w[Standard Arena Tutorial]
+      def god_recommended_items(name_or_id, role = 'Standard')
+        god   = god(name_or_id)
+        role  = role.downcase
+        
+        @rec_items          ||= {}
+        @rec_items[god.id]  ||= {}
+        return @rec_items[god.id][role] unless @rec_items[god.id][role].nil?
+
+        recommended = client.god_recommended_items(god.id)
+        @rec_items[god.id][role.downcase] ||= Smite::RecommendedItems.new(god.name, recommended, role)
       end
 
       def gods
@@ -51,15 +64,15 @@ module Smite
 
       def device_hash
         @device_hash ||= (0...devices.count).each_with_object({}) do |idx, hash|
-          hash[devices[idx].item_id]      = idx
-          hash[devices[idx].device_name]  = idx
+          hash[devices[idx].item_id.to_s]          = idx
+          hash[devices[idx].device_name.downcase]  = idx
         end
       end
 
       def god_hash
         @god_hash ||= (0...gods.count).each_with_object({}) do |idx, hash|
-          hash[gods[idx].id]    = idx
-          hash[gods[idx].name]  = idx
+          hash[gods[idx].id.to_s]        = idx
+          hash[gods[idx].name.downcase]  = idx
         end
       end
     end
