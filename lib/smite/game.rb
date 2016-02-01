@@ -4,40 +4,56 @@ module Smite
       attr_reader :client
 
       def authenticate!(dev_id, auth_key, format = 'json', lang = 1)
-        @client = Smite::Client.new(dev_id, auth_key, format, lang)
-        !client.session_id.empty?
+        @client = Smite::Client.new(dev_id, auth_key, lang)
+        !client.session_id.nil?
       end
 
       def device(name_or_id)
-        devices[device_hash[name_or_id.to_s.downcase]]
+        idx = device_hash[name_or_id.to_s.downcase]
+        idx.nil? ? nil : devices[idx]
       end
       alias_method :item, :device
       alias_method :consumable, :device
       alias_method :active, :device
 
       def god(name_or_id)
-        gods[god_hash[name_or_id.to_s.downcase]]
+        idx = god_hash[name_or_id.to_s.downcase]
+        idx.nil? ? nil : gods[idx]
       end
 
       def match(match_id)
-        Match.new(client.match_details(match_id))
+        @matches           ||= {}
+        @matches[match_id] ||= Match.new(client.match_details(match_id))
       end
 
       def player(player_name)
-        Player.new(client, player_name)
+        Player.new(player_name)
       end
 
-      # role in %w[Standard Arena Tutorial]
-      def god_recommended_items(name_or_id, role = 'Standard')
-        god   = god(name_or_id)
-        role  = role.downcase
-        
-        @rec_items          ||= {}
-        @rec_items[god.id]  ||= {}
-        return @rec_items[god.id][role] unless @rec_items[god.id][role].nil?
+      def motd_now
+        motd_list[0]
+      end
 
+      def motd_list
+        @motds ||= client.motd.map(&MOTD.method(:new))
+      end
+
+      def queues
+        @queues ||= Smite::Queue::QUEUES.map(&Queue.method(:new))
+      end
+
+      def god_recommended_items(name_or_id)
+        god = god(name_or_id)
+        @rec_items ||= {}
+        return @rec_items[god.id] unless @rec_items[god.id].nil?
+
+        @rec_items[god.id] = []
         recommended = client.god_recommended_items(god.id)
-        @rec_items[god.id][role.downcase] ||= Smite::RecommendedItems.new(god.name, recommended, role)
+        recommended.group_by { |r| r['Role'] }.each do |role, items|
+          @rec_items[god.id] << Smite::RecommendedItems.new(god.name, items, role)
+        end
+
+        @rec_items[god.id]
       end
 
       def gods

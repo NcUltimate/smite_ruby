@@ -6,7 +6,7 @@ module Smite
         item_fields = data.slice(*item_map_fields)
         return data if item_fields.empty?
 
-        data['items'] = item_fields.values.map { |id| Smite::Game.item(id.to_i) }
+        data['items'] = item_fields.values.map { |id| Smite::Game.item(id) }
         data.except(*item_filter_fields)
       end
 
@@ -14,7 +14,7 @@ module Smite
         god_fields = data.slice(*god_map_fields)
         return data if god_fields.empty?
 
-        data['god'] = god_fields.values.map { |id| Smite::Game.god(id.to_i) }[0]
+        data['god'] = god_fields.values.map { |id| Smite::Game.god(id) }[0]
         data.except(*god_filter_fields)
       end
 
@@ -32,13 +32,13 @@ module Smite
         data.except(*ability_filter_fields)
       end
 
-      def transform_match(data)
-        return data unless data['Queue']
+      def transform_recent_match(data)
+        return data unless data['queue']
 
-        if data['Queue'] =~ /League/
+        if data['queue'] =~ /League/
           data
         else
-          data.except(*match_filter_fields)
+          data.except(*recent_match_filter_fields)
         end
       end
 
@@ -98,7 +98,7 @@ module Smite
         )
       end
 
-      def match_filter_fields
+      def recent_match_filter_fields
         %w(
           ban1 ban2 ban3 ban4 ban5 ban6
           ban1_id ban2_id ban3_id
@@ -129,7 +129,7 @@ module Smite
       end
 
       def god_filter_fields
-        god_map_fields + %w(god)
+        god_map_fields
       end
     end
   end

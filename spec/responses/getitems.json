@@ -1,0 +1,118 @@
+[ 
+  {
+    "ChildItemId" : 7527,
+    "DeviceName" : "Sovereignty",
+    "IconId" : 2864,
+    "ItemDescription" : 
+     {"Description" : "This item gives the owner an aura of magical and physical protections.",
+      "Menuitems" : [{"Description" : "Health", "Value" : "+200"}, {"Description" : "Physical Protection", "Value" : "+50"}],
+      "SecondaryDescription" : "AURA - All allies within 70 units gain +20 Magical Protections and +25 HP5."},
+    "ItemId" : 7528,
+    "ItemTier" : 3,
+    "Price" : 700,
+    "RootItemId" : 7526,
+    "ShortDesc" : "Physical and Magical Protection Aura.",
+    "StartingItem" : false,
+    "Type" : "Item",
+    "itemIcon_URL" : "http://hirezstudios.blob.core.windows.net/sitefinity/smite-items/2864.jpg",
+    "ret_msg" : null
+  },
+  {
+    "ChildItemId" : 0,
+    "DeviceName" : "Vampiric Shroud",
+    "IconId" : 2178,
+    "ItemDescription" : 
+     {"Description" : "This starting item is for Magical users and gives them a chance to gain Health and Mana.",
+      "Menuitems" : 
+       [{"Description" : "Magical Power", "Value" : "+20"},
+        {"Description" : "Health", "Value" : "+100"},
+        {"Description" : "MP5", "Value" : "+5"}],
+      "SecondaryDescription" : "PASSIVE - Killing an enemy restores 10 Health and 10 Mana."},
+    "ItemId" : 8247,
+    "ItemTier" : 1,
+    "Price" : 800,
+    "RootItemId" : 8247,
+    "ShortDesc" : "Killing minions or camps restores Health and Mana.",
+    "StartingItem" : true,
+    "Type" : "Item",
+    "itemIcon_URL" : "http://hirezstudios.blob.core.windows.net/sitefinity/smite-items/2178.jpg",
+    "ret_msg" : null
+  },
+  {
+    "ChildItemId" : 9859,
+   "DeviceName" : "Soul Reaver",
+   "IconId" : 2908,
+   "ItemDescription" : 
+    {"Description" : "This item causes the owner's ability to deal a percentage of the target's Health as additional damage.",
+     "Menuitems" : [{"Description" : "Magical Power", "Value" : "+100"}, {"Description" : "Mana", "Value" : "+300"}],
+     "SecondaryDescription" : 
+      "PASSIVE - When a god takes damage from your abilities, they take 15% of their maximum Health in additional damage.  If multiple gods are hit, the damage is applied to the one with the greatest maximum Health.  This can only occur once every 60 seconds."},
+   "ItemId" : 9128,
+   "ItemTier" : 3,
+   "Price" : 1350,
+   "RootItemId" : 9858,
+   "ShortDesc" : "Bonus damage based on target's maximum Health.",
+   "StartingItem" : false,
+   "Type" : "Item",
+   "itemIcon_URL" : "http://hirezstudios.blob.core.windows.net/sitefinity/smite-items/2908.jpg",
+   "ret_msg" : null
+  },
+  {
+    "ChildItemId" : 8566,
+   "DeviceName" : "Shifter's Shield",
+   "IconId" : 2254,
+   "ItemDescription" : 
+    {"Description" : "This item gives the owner additional Physical Power or Protections based on missing Health.",
+     "Menuitems" : 
+      [{"Description" : "Physical Power", "Value" : "+40"},
+       {"Description" : "Physical Protection", "Value" : "+15"},
+       {"Description" : "Magical Protection", "Value" : "+15"}],
+     "SecondaryDescription" : 
+      "PASSIVE - While over 50% Health, you gain +20 Physical Power. While under 50% Health, you gain +20 Protections."},
+   "ItemId" : 8549,
+   "ItemTier" : 3,
+   "Price" : 1500,
+   "RootItemId" : 9833,
+   "ShortDesc" : "Provides Physical Power or Protections based on missing Health.",
+   "StartingItem" : false,
+   "Type" : "Item",
+   "itemIcon_URL" : "http://hirezstudios.blob.core.windows.net/sitefinity/smite-items/2254.jpg",
+   "ret_msg" : null
+  },
+  {
+    "ChildItemId" : 0,
+    "DeviceName" : "Potion of Magical Might",
+    "IconId" : 1977,
+    "ItemDescription" : 
+     {"Description" : "This consumable increases your Magical Power.",
+      "Menuitems" : [],
+      "SecondaryDescription" : "This consumable increases your Magical Power by 50 for 5 minutes or until you are killed."},
+    "ItemId" : 7529,
+    "ItemTier" : 1,
+    "Price" : 450,
+    "RootItemId" : 7529,
+    "ShortDesc" : "Magical Power buff.",
+    "StartingItem" : false,
+    "Type" : "Consumable",
+    "itemIcon_URL" : "http://hirezstudios.blob.core.windows.net/sitefinity/smite-items/1977.jpg",
+    "ret_msg" : null
+  },
+    {"ChildItemId" : 8850,
+    "DeviceName" : "Improved Aegis",
+    "IconId" : 2640,
+    "ItemDescription" : 
+     {"Description" : "Invulnerability for 1.5 seconds.",
+      "Menuitems" : [],
+      "SecondaryDescription" : 
+       "Using this item makes you invulnerable to damage for 1.5s, preventing you from taking action.  Cooldown - 150s."},
+    "ItemId" : 8851,
+    "ItemTier" : 2,
+    "Price" : 300,
+    "RootItemId" : 8850,
+    "ShortDesc" : "Invulnerability for a duration.",
+    "StartingItem" : false,
+    "Type" : "Active",
+    "itemIcon_URL" : "http://hirezstudios.blob.core.windows.net/sitefinity/smite-items/2640.jpg",
+    "ret_msg" : null
+  }
+]

@@ -22,9 +22,17 @@ module Smite
       type == 'Item'
     end
 
+    def starter?
+      starting_item
+    end
+
+    def name
+      device_name
+    end
+
     def physical?
       @physical ||= !effects.map(&:attribute).any? do |eff|
-        eff =~ /magic_(power|pen)/
+        eff =~ /magic(al)?_(power|pen)/
       end
     end
 

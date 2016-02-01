@@ -5,6 +5,8 @@ module Smite
 end
 
 require_relative './smite/object.rb'
+require_relative './smite/queue.rb'
+require_relative './smite/motd.rb'
 require_relative './smite/recommended_items.rb'
 require_relative './smite/achievements.rb'
 require_relative './smite/ability.rb'
@@ -16,6 +18,7 @@ require_relative './smite/item.rb'
 require_relative './smite/friend.rb'
 require_relative './smite/data_transform.rb'
 require_relative './smite/match.rb'
+require_relative './smite/recent_match.rb'
 require_relative './smite/player.rb'
 require_relative './smite/game.rb'
 require_relative './smite/client.rb'

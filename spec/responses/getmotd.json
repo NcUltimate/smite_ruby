@@ -1,0 +1,37 @@
+[
+  {
+    "description" : "<li>Gimme da gold! Start with a whopping 100,000 gold at the beginning of this all in Arena match.<li>Map: Arena</li><li>Starting Gold:100,000</li><li>Gods: Owned</li><li>Selection: Blind Pick</li></li>",
+    "gameMode" : "Arena",
+    "maxPlayers" : "",
+    "name" : "Hoarder",
+    "ret_msg" : null,
+    "startDateTime" : "2/1/2016 9:00:00 AM",
+    "team1GodsCSV" : "",
+    "team2GodsCSV" : "",
+    "title" : "Hoarder"
+  },
+  {
+    "description" : "<li>The battle of Ragnarok is here and all the gods are gathered in Asgard. Bring your favorite god to this fight at the end of the world. <li>Map: Assault</li><li>Gods:All</li><li>Selection:All Pick</li></li>\t",
+    "gameMode" : "Assault",
+    "maxPlayers" : "",
+    "name" : "All Out Assault (no aphro)",
+    "ret_msg" : null,
+    "startDateTime" : "1/31/2016 9:00:00 AM",
+    "team1GodsCSV" : 
+     "1737, 1956, 2056, 2110, 1773, 1668, 2034, 1899, 1699, 1782, 1748, 1919, 2037, 1809, 1755, 1678, 2047, 2008, 1966, 1921, 2075, 1920, 1778, 1843, 1784, 1978, 1763, 1676, 1674, 1718, 1848, 2040, 1673, 1918, 1999, 1649, 2066, 1677, 1993, 1797, 2051, 1941, 1915, 1872, 1980, 2036, 1958, 1669, 2000, 1881, 1698, 2002, 2063, 2065, 1988, 2005, 1747, 2074, 1944, 2030, 1943, 1779, 1924, 1991, 1723, 1869, 1864, 2072, 1670, 1672, 1926",
+    "team2GodsCSV" : 
+     "1737, 1956, 2056, 2110, 1773, 1668, 2034, 1899, 1699, 1782, 1748, 1919, 2037, 1809, 1755, 1678, 2047, 2008, 1966, 1921, 2075, 1920, 1778, 1843, 1784, 1978, 1763, 1676, 1674, 1718, 1848, 2040, 1673, 1918, 1999, 1649, 2066, 1677, 1993, 1797, 2051, 1941, 1915, 1872, 1980, 2036, 1958, 1669, 2000, 1881, 1698, 2002, 2063, 2065, 1988, 2005, 1747, 2074, 1944, 2030, 1943, 1779, 1924, 1991, 1723, 1869, 1864, 2072, 1670, 1672, 1926",
+    "title" : "All Out Assault"
+  },
+  {
+    "description" : "Join in the true sport of the gods, slaying each other. Battle your foes to see which team can slaughter 30 of their enemy first.<li>Map: Arena</li><li>Minion deaths don’t remove enemy tickets.</li><li>Only brute minions count when entering an enemy portal</li><li>Base Heal Disabled</li><li>Infinite Mana</li><li>Starting Ticket Count:150</li><li>Gods: Owned</li>",
+    "gameMode" : "Arena",
+    "maxPlayers" : "",
+    "name" : "Mass Deicide",
+    "ret_msg" : null,
+    "startDateTime" : "1/30/2016 9:00:00 AM",
+    "team1GodsCSV" : "",
+    "team2GodsCSV" : "",
+    "title" : "Mass Deicide"
+  }
+]

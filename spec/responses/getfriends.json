@@ -1,0 +1,44 @@
+[
+  {
+    "account_id" : "3224325",
+    "avatar_url" : "http://app.smitegame.com/playeravatar/?id=11557",
+    "name" : "aBROcalypse",
+    "player_id" : "241202",
+    "ret_msg" : null
+  },
+  {
+    "account_id" : "0",
+    "avatar_url" : "",
+    "name" : "",
+    "player_id" : "0",
+    "ret_msg" : null
+  },
+  {
+    "account_id" : "11943457",
+    "avatar_url" : "",
+    "name" : "Adopting",
+    "player_id" : "5723367",
+    "ret_msg" : null
+  },
+  {
+    "account_id" : "1433690",
+    "avatar_url" : "http://app.smitegame.com/playeravatar/?id=9714",
+    "name" : "Advert",
+    "player_id" : "544721",
+    "ret_msg" : null
+  },
+  {
+    "account_id" : "4495607",
+    "avatar_url" : "http://app.smitegame.com/playeravatar/?id=9795",
+    "name" : "Aengy",
+    "player_id" : "872738",
+    "ret_msg" : null
+  },
+  {
+    "account_id" : "2508306",
+    "avatar_url" : "http://app.smitegame.com/playeravatar/?id=10282",
+    "name" : "Aiurz",
+    "player_id" : "96255",
+    "ret_msg" : null
+  }
+]

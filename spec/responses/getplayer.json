@@ -1,0 +1,57 @@
+[
+  {
+    "Avatar_URL" : "http://app.smitegame.com/playeravatar/?id=10587",
+    "Created_Datetime" : "12/29/2013 8:55:42 PM",
+    "Id" : 2784051,
+    "Last_Login_Datetime" : "2/1/2016 4:49:29 PM",
+    "LeagueConquest" : 
+     {
+      "Leaves" : 17,
+      "Losses" : 498,
+      "Name" : "Conquest",
+      "Points" : 2334,
+      "PrevRank" : 1,
+      "Rank" : 1000,
+      "Rank_Stat_Conquest" : null,
+      "Rank_Stat_Joust" : null,
+      "Season" : 2,
+      "Tier" : 26,
+      "Trend" : 0,
+      "Wins" : 739,
+      "player_id" : null,
+      "ret_msg" : null
+    },
+    "LeagueJoust" : 
+     {
+      "Leaves" : 0,
+      "Losses" : 18,
+      "Name" : "Joust",
+      "Points" : 21,
+      "PrevRank" : 142,
+      "Rank" : 1000,
+      "Rank_Stat_Conquest" : null,
+      "Rank_Stat_Joust" : null,
+      "Season" : 2,
+      "Tier" : 26,
+      "Trend" : 0,
+      "Wins" : 40,
+      "player_id" : null,
+      "ret_msg" : null
+    },
+    "Leaves" : 21,
+    "Level" : 30,
+    "Losses" : 1977,
+    "MasteryLevel" : 66,
+    "Name" : "[Epsi]Adapting",
+    "Rank_Stat" : 0,
+    "Rank_Stat_Joust" : 0,
+    "TeamId" : 478427,
+    "Team_Name" : "Epsilon eSports",
+    "Tier_Conquest" : 26,
+    "Tier_Joust" : 26,
+    "Total_Achievements" : 141,
+    "Total_Worshippers" : 52023,
+    "Wins" : 3728,
+    "ret_msg" : null
+  }
+]

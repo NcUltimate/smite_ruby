@@ -1,5 +1,4 @@
-require 'rspec'
-require_relative '../lib/smite.rb'
+require 'spec_helper'
 
 RSpec.describe Smite::GodRank do
   it 'tests' do

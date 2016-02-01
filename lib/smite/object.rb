@@ -4,6 +4,7 @@ module Smite
 
     def initialize(data)
       @data = data.each_with_object({}) do |(k, v), obj|
+        next if k == 'ret_msg'
         obj[ActiveSupport::Inflector.underscore(k)] = v
       end
     end
@@ -14,7 +15,7 @@ module Smite
 
     def method_missing(method)
       camel_method = ActiveSupport::Inflector.underscore(method.to_s)
-      @data[camel_method] || super
+      @data.include?(camel_method) ? @data[camel_method] : super
     end
   end
 end

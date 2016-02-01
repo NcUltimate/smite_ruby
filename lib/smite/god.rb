@@ -7,7 +7,7 @@ module Smite
     end
 
     def on_free_rotation?
-      !on_free_rotation.blank?
+      !on_free_rotation.empty?
     end
 
     def ranged?

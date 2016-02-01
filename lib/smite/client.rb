@@ -1,14 +1,13 @@
 module Smite
   class Client
-    attr_reader :dev_id, :auth_key, :session_id, :format, :lang
+    attr_reader :dev_id, :auth_key, :session_id, :lang
     include HTTParty
     base_uri 'http://api.smitegame.com/smiteapi.svc/'
 
-    def initialize(dev_id, auth_key, format = 'json', lang = 1)
+    def initialize(dev_id, auth_key, lang = 1)
       @dev_id     = dev_id
       @auth_key   = auth_key
-      @format     = validate_format(format.downcase)
-      @lang       = lang
+      @lang       = [1,2,3,7,9,10,11,12,13].include?(lang) ? lang : 1
       create_session
     end
 
@@ -88,7 +87,7 @@ module Smite
       api_call('getplayer', [player_name])
     end
 
-    def match_history
+    def match_history(player_name)
       api_call('getmatchhistory', [player_name])
     end
 
@@ -122,10 +121,6 @@ module Smite
       self.class.get(request)
     end
 
-    def validate_format(format)
-      %w(json xml).include?(format) ? format : 'json'
-    end
-
     def signature(method)
       Digest::MD5.hexdigest("#{dev_id}#{method}#{auth_key}#{timestamp}")
     end
@@ -145,7 +140,7 @@ module Smite
 
     def base_str(method)
       signature = signature(method)
-      "/#{method}#{format}/#{dev_id}/#{signature}"
+      "/#{method}json/#{dev_id}/#{signature}"
     end
 
     def param_str(params)

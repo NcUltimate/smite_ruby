@@ -1,0 +1,461 @@
+[
+  {
+    "Ability1" : "Noxious Fumes",
+    "Ability2" : "Flame Wave",
+    "Ability3" : "Path of Flames",
+    "Ability4" : "Rain Fire",
+    "Ability5" : "Combustion",
+    "AbilityId1" : 7812,
+    "AbilityId2" : 7811,
+    "AbilityId3" : 7818,
+    "AbilityId4" : 7824,
+    "AbilityId5" : 7822,
+    "Ability_1" : 
+     {"Description" : 
+       {"itemDescription" : 
+         {"cooldown" : "12s",
+          "cost" : "60/70/80/90/100",
+          "description" : 
+           "Agni summons a cloud of noxious fumes at his ground target location, doing damage every second. Firing any of Agni's abilities into the fumes detonates the gas, Stunning all enemies in the radius.",
+          "menuitems" : 
+           [{"description" : "Ability:", "value" : "Ground Target"},
+            {"description" : "Affects:", "value" : "Enemy"},
+            {"description" : "Damage:", "value" : "Magical"},
+            {"description" : "Radius:", "value" : "20"}],
+          "rankitems" : 
+           [{"description" : "Damage per Tick:", "value" : "10/20/30/40/50 (+5% of your Magical Power)"},
+            {"description" : "Fumes Duration:", "value" : "10s"},
+            {"description" : "Stun Duration:", "value" : "1s"}],
+          "secondaryDescription" : ""}},
+      "Id" : 7812,
+      "Summary" : "Noxious Fumes",
+      "URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/1737_78121.jpg"},
+    "Ability_2" : 
+     {"Description" : 
+       {"itemDescription" : 
+         {"cooldown" : "15/14/13/12/11s",
+          "cost" : "60/70/80/90/100",
+          "description" : "Agni summons a wave of fire in front of him that scorches all enemies in its path. Ignites Noxious Fumes.",
+          "menuitems" : 
+           [{"description" : "Ability:", "value" : "Line"},
+            {"description" : "Affects:", "value" : "Enemy"},
+            {"description" : "Damage:", "value" : "Magical"}],
+          "rankitems" : [{"description" : "Damage:", "value" : "90/140/190/240/290 (+50% of your Magical Power)"}],
+          "secondaryDescription" : ""}},
+      "Id" : 7811,
+      "Summary" : "Flame Wave",
+      "URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/1737_78111.jpg"},
+    "Ability_3" : 
+     {"Description" : 
+       {"itemDescription" : 
+         {"cooldown" : "15s",
+          "cost" : "70/75/80/85/90",
+          "description" : 
+           "Agni blazes a path forward in a quick dash, leaving flames trailing behind him. Any enemies passing through the flames catch fire and burn for damage every .5s for 2s. Ignites Noxious Fumes. Agni is immune to Knockback while dashing.",
+          "menuitems" : 
+           [{"description" : "Ability:", "value" : "Dash"},
+            {"description" : "Affects:", "value" : "Enemy"},
+            {"description" : "Damage:", "value" : "Magical"}],
+          "rankitems" : 
+           [{"description" : "Damage per Tick:", "value" : "20/30/40/50/60 (+15% of your Magical Power)"},
+            {"description" : "Path Duration:", "value" : "3s"}],
+          "secondaryDescription" : ""}},
+      "Id" : 7818,
+      "Summary" : "Path of Flames",
+      "URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/1737_78181.jpg"},
+    "Ability_4" : 
+     {"Description" : 
+       {"itemDescription" : 
+         {"cooldown" : "Dependent on Halos",
+          "cost" : "0",
+          "description" : 
+           "Every 20 seconds, Agni gains a flaming halo that can be expended to summon a giant meteor at his ground target location. He can summon 1 every .8 seconds. Ignites Noxious Fumes.",
+          "menuitems" : 
+           [{"description" : "Ability:", "value" : "Ground Target"},
+            {"description" : "Affects:", "value" : "Enemy"},
+            {"description" : "Damage:", "value" : "Magical"},
+            {"description" : "Radius:", "value" : "20"}],
+          "rankitems" : 
+           [{"description" : "Damage:", "value" : "160/195/230/265/300 (+60% of your Magical Power)"},
+            {"description" : "Max Halos:", "value" : "3"}],
+          "secondaryDescription" : ""}},
+      "Id" : 7824,
+      "Summary" : "Rain Fire",
+      "URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/1737_78241.jpg"},
+    "Ability_5" : 
+     {"Description" : 
+       {"itemDescription" : 
+         {"cooldown" : "",
+          "cost" : "",
+          "description" : 
+           "After hitting with 4 Basic Attacks, Agni will gain a Buff. On the next cast of Flame Wave or Rain Fire, all enemies hit by those abilities will be additionally set ablaze, taking damage every .5s for 3s.",
+          "menuitems" : [{"description" : "Affects:", "value" : "Enemy"}, {"description" : "Damage:", "value" : "Magical"}],
+          "rankitems" : [{"description" : "Damage per Tick:", "value" : "5 (+10% of your Magical Power)"}],
+          "secondaryDescription" : ""}},
+      "Id" : 7822,
+      "Summary" : "Combustion",
+      "URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/1737_78221.jpg"},
+    "AttackSpeed" : 0.86,
+    "AttackSpeedPerLevel" : 0.009,
+    "Cons" : "",
+    "HP5PerLevel" : 0.47,
+    "Health" : 360,
+    "HealthPerFive" : 7,
+    "HealthPerLevel" : 71,
+    "Lore" : "There are few elements as destructive or as purifying as fire. Agni, God of Fire, is the embodiment of both of these qualities, with a head for each.\\n\\nThough the source of his origin warrants debate - for there are many tales of his parentage ranging from two simple sticks rubbed together, to the cosmic energy that made all things at the beginning of time - Agni is a pivotal and important God with many duties to the Pantheon. He is the twin brother to Indra, God of the Heavens and Rains and chief among warriors. Conversely, Agni is chief among priests, acting as messenger between mortals and Gods. Every Hindu ritual and prayer is performed in front of a fire of some kind, so Agni carries the words and sacrifices, traveling between the Earth and the Heavens. He is welcome in every home and every hearth and much beloved by the Faithful.\\n\\nThrough his flames, Agni provides heat and light, but also cleanses impurities. Smoke from his pyres create the air and hold the Heavens aloft. The sun, a source of fire itself, brings life-giving energy to the world, and his lightning streaks the sky during storms.\\n\\nFor all his kindness and service, Agni has two faces. One is the face of kindness and purity, turned towards the people and Gods. His other face, grim and resolute, guides the God of Fire, to play his role in the cosmic cycle of creation and destruction, to burn and blacken all the atrocities of the world to ash.",
+    "MP5PerLevel" : 0.37,
+    "MagicProtection" : 30,
+    "MagicProtectionPerLevel" : 0,
+    "MagicalPower" : 170,
+    "MagicalPowerPerLevel" : 7.5,
+    "Mana" : 255,
+    "ManaPerFive" : 4.7,
+    "ManaPerLevel" : 45,
+    "Name" : "Agni",
+    "OnFreeRotation" : "true",
+    "Pantheon" : "Hindu",
+    "PhysicalPower" : 0,
+    "PhysicalPowerPerLevel" : 0,
+    "PhysicalProtection" : 11,
+    "PhysicalProtectionPerLevel" : 2.6,
+    "Pros" : " High Area Damage",
+    "Roles" : " Mage",
+    "Speed" : 350,
+    "Title" : "God of Fire",
+    "Type" : " Ranged, Magical",
+    "abilityDescription1" : {},
+    "abilityDescription2" : {},
+    "abilityDescription3" : {},
+    "abilityDescription4" : {},
+    "abilityDescription5" : {},
+    "basicAttack" : 
+     {"itemDescription" : 
+       {"cooldown" : "",
+        "cost" : "",
+        "description" : "",
+        "menuitems" : 
+         [{"description" : "Damage:", "value" : "34 + 1.5/Lvl (+20% of Magical Power)"}, {"description" : "Progression:", "value" : "None"}],
+        "rankitems" : [],
+        "secondaryDescription" : ""}},
+    "godAbility1_URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/1737_78121.jpg",
+    "godAbility2_URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/1737_78111.jpg",
+    "godAbility3_URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/1737_78181.jpg",
+    "godAbility4_URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/1737_78241.jpg",
+    "godAbility5_URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/1737_78221.jpg",
+    "godCard_URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/standardagni_card.jpg",
+    "godIcon_URL" : "http://hirezstudios.blob.core.windows.net/sitefinity/smite-god-icons/1737.jpg",
+    "id" : 1737,
+    "latestGod" : "n",
+    "ret_msg" : null
+  },
+  {
+    "Ability1" : "Charge Prey",
+   "Ability2" : "Tail Whip",
+   "Ability3" : "Sickening Strike",
+   "Ability4" : "Lurking in the Waters",
+   "Ability5" : "Blessing of the Nile",
+   "AbilityId1" : 7946,
+   "AbilityId2" : 7949,
+   "AbilityId3" : 7951,
+   "AbilityId4" : 7947,
+   "AbilityId5" : 7952,
+   "Ability_1" : 
+    {"Description" : 
+      {"itemDescription" : 
+        {"cooldown" : "15s",
+         "cost" : "70/75/80/85/90",
+         "description" : 
+          "Sobek charges forward at a frenzied pace. If Sobek hits an enemy, he does damage and throws the enemy behind himself. Sobek is immune to knockups while dashing.",
+         "menuitems" : 
+          [{"description" : "Ability:", "value" : "Dash"},
+           {"description" : "Affects:", "value" : "Enemy"},
+           {"description" : "Damage:", "value" : "Magical"}],
+         "rankitems" : [{"description" : "Damage:", "value" : "70/110/150/190/230 (+50% of your magical power)"}],
+         "secondaryDescription" : ""}},
+     "Id" : 7946,
+     "Summary" : "Charge Prey",
+     "URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/1747_7946.jpg"},
+   "Ability_2" : 
+    {"Description" : 
+      {"itemDescription" : 
+        {"cooldown" : "12s",
+         "cost" : "70/80/90/100/110",
+         "description" : "Sobek whips around in a circle, knocking enemies back and doing damage.",
+         "menuitems" : 
+          [{"description" : "Ability:", "value" : "Area"},
+           {"description" : "Affects:", "value" : "Enemy"},
+           {"description" : "Damage:", "value" : "Magical"},
+           {"description" : "Radius:", "value" : "20"}],
+         "rankitems" : [{"description" : "Damage:", "value" : "80/125/170/215/260 (+40% of your magical power)"}],
+         "secondaryDescription" : ""}},
+     "Id" : 7949,
+     "Summary" : "Tail Whip",
+     "URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/1747_7949.jpg"},
+   "Ability_3" : 
+    {"Description" : 
+      {"itemDescription" : 
+        {"cooldown" : "13s",
+         "cost" : "60/65/70/75/80",
+         "description" : 
+          "Sobek does an axe attack that damages all enemies in front of him and lowers their healing received.  In addition, Sobek heals for each enemy hit, up to 3.",
+         "menuitems" : 
+          [{"description" : "Ability:", "value" : "Cone"},
+           {"description" : "Affects:", "value" : "Enemy"},
+           {"description" : "Damage:", "value" : "Magical"}],
+         "rankitems" : 
+          [{"description" : "Damage:", "value" : "60/100/140/180/220 (+30% of your magical power)"},
+           {"description" : "Healing Reduction:", "value" : "50%"},
+           {"description" : "Healing Reduction Lifetime:", "value" : "4s"},
+           {"description" : "Heal:", "value" : "20/30/40/50/60 (+10% of your magical power)"}],
+         "secondaryDescription" : ""}},
+     "Id" : 7951,
+     "Summary" : "Sickening Strike",
+     "URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/1747_7951.jpg"},
+   "Ability_4" : 
+    {"Description" : 
+      {"itemDescription" : 
+        {"cooldown" : "90s",
+         "cost" : "80/90/100/110/120",
+         "description" : 
+          "Sobek submerges himself, where he gains 30% protections, regens mana, is immune to crowd control and he slows all enemies. When Sobek emerges, he damages all enemies in the radius. Cancelling the ability decreases the damage.",
+         "menuitems" : 
+          [{"description" : "Ability:", "value" : "Area"},
+           {"description" : "Affects:", "value" : "Enemy"},
+           {"description" : "Damage:", "value" : "Magical"},
+           {"description" : "Radius:", "value" : "30"}],
+         "rankitems" : 
+          [{"description" : "Damage:", "value" : "350/500/650/800/950 (+80% of your magical power)"},
+           {"description" : "Submerge Slow:", "value" : "20/25/30/35/40%"},
+           {"description" : "Submerge Lifetime:", "value" : "4s"},
+           {"description" : "Submerge Mana Regen:", "value" : "10% per second"}],
+         "secondaryDescription" : ""}},
+     "Id" : 7947,
+     "Summary" : "Lurking in the Waters",
+     "URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/1747_7947.jpg"},
+   "Ability_5" : 
+    {"Description" : 
+      {"itemDescription" : 
+        {"cooldown" : "",
+         "cost" : "",
+         "description" : "Sobek's basic attacks and abilities that hit an enemy grant him protections for a short time.",
+         "menuitems" : [{"description" : "Ability:", "value" : "Buff"}, {"description" : "Affects:", "value" : "Self"}],
+         "rankitems" : 
+          [{"description" : "Protections:", "value" : "7"},
+           {"description" : "Lifetime:", "value" : "3s"},
+           {"description" : "Max Stacks:", "value" : "3"}],
+         "secondaryDescription" : ""}},
+     "Id" : 7952,
+     "Summary" : "Blessing of the Nile",
+     "URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/1747_7952.jpg"},
+   "AttackSpeed" : 0.85,
+   "AttackSpeedPerLevel" : 0.012,
+   "Cons" : "",
+   "HP5PerLevel" : 0.75,
+   "Health" : 490,
+   "HealthPerFive" : 6,
+   "HealthPerLevel" : 81,
+   "Lore" : 
+    "Hunter, guardian, destroyer, menace; the Crocodile God, Sobek, swims where the Nile takes him and owes allegiance to no one.\\n\\nSome say that Sobek was there when only the Dark Waters existed, so he helped create the world. Some say that Sobek made the Nile with his sweat and protects those that travel it if they pay him tribute, otherwise he destroys them. Some say that Sobek ushers the worthy dead down the Nile to the afterlife and aids in their rebirth, restoring sight and strength. Some say he is evil and hateful, ravaging those along the shores and terrorizing villages. Sobek, in truth, is all of these things and none.\\n\\nSobek is not a God of good or evil, of benevolence or malice, but a God of solitary neutrality, unless disturbed; a God that tends to his mighty river and performs his responsibilities to passing souls. The rest of the time, he does what he wishes. For his protection to the living and the dead, he is to be worshipped and respected. For his power, ferocity, and ruthlessness, he is to be rightfully feared.",
+   "MP5PerLevel" : 0.43,
+   "MagicProtection" : 30,
+   "MagicProtectionPerLevel" : 0.9,
+   "MagicalPower" : 190,
+   "MagicalPowerPerLevel" : 7.5,
+   "Mana" : 210,
+   "ManaPerFive" : 4.5,
+   "ManaPerLevel" : 35,
+   "Name" : "Sobek",
+   "OnFreeRotation" : "",
+   "Pantheon" : "Egyptian",
+   "PhysicalPower" : 0,
+   "PhysicalPowerPerLevel" : 0,
+   "PhysicalProtection" : 19,
+   "PhysicalProtectionPerLevel" : 3,
+   "Pros" : " High Crowd Control, High Defense",
+   "Roles" : " Guardian",
+   "Speed" : 365,
+   "Title" : "God of the Nile",
+   "Type" : " Melee, Magical",
+   "abilityDescription1" : {},
+   "abilityDescription2" : {},
+   "abilityDescription3" : {},
+   "abilityDescription4" : {},
+   "abilityDescription5" : {},
+   "basicAttack" : 
+    {"itemDescription" : 
+      {"cooldown" : "",
+       "cost" : "",
+       "description" : "",
+       "menuitems" : 
+        [{"description" : "Damage:", "value" : "38 + 1.5/Lvl (+20% of Magical Power)"}, {"description" : "Progression:", "value" : "None"}],
+       "rankitems" : [],
+       "secondaryDescription" : ""}},
+   "godAbility1_URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/1747_7946.jpg",
+   "godAbility2_URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/1747_7949.jpg",
+   "godAbility3_URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/1747_7951.jpg",
+   "godAbility4_URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/1747_7947.jpg",
+   "godAbility5_URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/1747_7952.jpg",
+   "godCard_URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/standardsobek_card.jpg",
+   "godIcon_URL" : "http://hirezstudios.blob.core.windows.net/sitefinity/smite-god-icons/1747.jpg",
+   "id" : 1747,
+   "latestGod" : "n",
+   "ret_msg" : null
+  },
+  {
+    "Ability1" : "Sickle Strike",
+   "Ability2" : "Spirit Flail",
+   "Ability3" : "Judgement Tether",
+   "Ability4" : "Lord of the Afterlife",
+   "Ability5" : "Fragmented",
+   "AbilityId1" : 9946,
+   "AbilityId2" : 9947,
+   "AbilityId3" : 9953,
+   "AbilityId4" : 10000,
+   "AbilityId5" : 9973,
+   "Ability_1" : 
+    {"Description" : 
+      {"itemDescription" : 
+        {"cooldown" : "5s",
+         "cost" : "30",
+         "description" : 
+          "Osiris throws his Sickle forward. It stops at the first enemy hit, dealing damage and slowing them. The Sickle remains for the duration of the slow.",
+         "menuitems" : 
+          [{"description" : "Ability:", "value" : "Line"},
+           {"description" : "Affects:", "value" : "Enemies"},
+           {"description" : "Damage:", "value" : "Physical"},
+           {"description" : "Range:", "value" : "55"}],
+         "rankitems" : 
+          [{"description" : "Damage:", "value" : "60/100/140/180/220 (+30% of your physical power)"},
+           {"description" : "Slow Duration:", "value" : "3s"},
+           {"description" : "Slow:", "value" : "20%"}],
+         "secondaryDescription" : ""}},
+     "Id" : 9946,
+     "Summary" : "Sickle Strike",
+     "URL" : "http://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/2000_9946.jpg"},
+   "Ability_2" : 
+    {"Description" : 
+      {"itemDescription" : 
+        {"cooldown" : "10s",
+         "cost" : "50/55/60/65/70",
+         "description" : 
+          "Osiris imbues his flail with spiritual energy, striking at the target ground location. Enemies hit take damage, and Osiris gains movement speed. If an enemy is under the effect of Sickle Strike, the target slow is increased in power and duration.",
+         "menuitems" : 
+          [{"description" : "Ability:", "value" : "Ground Target"},
+           {"description" : "Affects:", "value" : "Enemies"},
+           {"description" : "Damage:", "value" : "Physical"},
+           {"description" : "Radius:", "value" : "15"}],
+         "rankitems" : 
+          [{"description" : "Damage:", "value" : "80/130/180/230/280 (+50% of your physical power)"},
+           {"description" : "Sickle Slow Increase:", "value" : "40% for 3s."},
+           {"description" : "Speed Buff:", "value" : "20% for 3s."}],
+         "secondaryDescription" : ""}},
+     "Id" : 9947,
+     "Summary" : "Spirit Flail",
+     "URL" : "http://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/2000_9947.jpg"},
+   "Ability_3" : 
+    {"Description" : 
+      {"itemDescription" : 
+        {"cooldown" : "18s ",
+         "cost" : "60/65/70/75/80",
+         "description" : 
+          "Osiris flings out mummy wraps, tethering himself to all nearby enemy gods. Targets hit deal reduced damage over the next 4s. The tether can be broken by targets moving far enough away from Osiris. Targets still in range when the duration expires are stunned.",
+         "menuitems" : 
+          [{"description" : "Ability:", "value" : "Area"},
+           {"description" : "Affects:", "value" : "Enemy Gods"},
+           {"description" : "Radius:", "value" : "35"}],
+         "rankitems" : 
+          [{"description" : "Damage Reduction:", "value" : "10/15/20/25/30% + 5% per second."},
+           {"description" : "Stun Duration:", "value" : "1.4s "}],
+         "secondaryDescription" : ""}},
+     "Id" : 9953,
+     "Summary" : "Judgement Tether",
+     "URL" : "http://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/2000_9953.jpg"},
+   "Ability_4" : 
+    {"Description" : 
+      {"itemDescription" : 
+        {"cooldown" : "90",
+         "cost" : "100",
+         "description" : 
+          "Osiris sheds any remaining fragments, gaining the benefit of his passive, and leaps forward. Osiris targets all enemy gods in the landing area, and rips a fragment of their spirits out, dealing damage and preventing them from healing. Targets are rooted for 0.4s during the attack. Enemy minions in the target area also take damage.",
+         "menuitems" : 
+          [{"description" : "Ability:", "value" : "Leap"},
+           {"description" : "Affects:", "value" : "Enemies"},
+           {"description" : "Damage:", "value" : "Physical"},
+           {"description" : "Area:", "value" : "15"}],
+         "rankitems" : 
+          [{"description" : "Damage:", "value" : "220/320/420/520/620 (80% of your physical power)"},
+           {"description" : "Healing Reduction:", "value" : "100%"},
+           {"description" : "Duration:", "value" : "6s"}],
+         "secondaryDescription" : ""}},
+     "Id" : 10000,
+     "Summary" : "Lord of the Afterlife",
+     "URL" : "http://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/2000_10000.jpg"},
+   "Ability_5" : 
+    {"Description" : 
+      {"itemDescription" : 
+        {"cooldown" : "",
+         "cost" : "",
+         "description" : 
+          "Each time Osiris uses an ability he burns away a fragment of his body, gaining physical damage mitigation for each missing fragment. After losing 8 fragments, he becomes his spirit form. He may walk through enemies and enemy blockers, and his basic attacks do not incur a movement penalty. This effect lasts for 6 successful basic attacks.",
+         "menuitems" : [{"description" : "Ability:", "value" : "Passive"}, {"description" : "Affects:", "value" : "Self"}],
+         "rankitems" : [{"description" : "Physical Damage Mitigation:", "value" : "2% per missing fragment"}],
+         "secondaryDescription" : ""}},
+     "Id" : 9973,
+     "Summary" : "Fragmented",
+     "URL" : "http://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/2000_9973.jpg"},
+   "AttackSpeed" : 1,
+   "AttackSpeedPerLevel" : 0.014,
+   "Cons" : "",
+   "HP5PerLevel" : 0.8,
+   "Health" : 475,
+   "HealthPerFive" : 6,
+   "HealthPerLevel" : 85,
+   "Lore" : 
+    "Never has there been, nor shall there be a king more perfect than Osiris. Son of the Earth God, Geb, Osiris was divine royalty by birth, and all the land his birthright. Benevolence and prosperity were the hallmarks of his reign. Would that he had been left to shape the world, but the jealousy of his brother, Set, changed the course of fate.\\n\\nSeeking to usurp the throne, Set deceived and murdered his brother, tearing his body to pieces and casting them across the land. Isis, Osiris’ wife, secretly fled while Set plunged the kingdom into darkness. For years she toiled to reassemble her husband while his spirit form, his Ba, endured. Yet for all her searching, she could not find every part of him, and Isis was forced to reanimate Osiris without. Though not strong enough to defy Set in this incomplete form, Osiris gave Isis a son that would topple the tyrant Set and restore balance to Egypt.\\n\\nWhat remains of Osiris is a fragment of what he once was. Robbed of his crown over the earth, he now governs the realm of the dead with the same benevolence he ruled the living. But darkness looms again, and though broken, Osiris refuses to sit idly by. Mustering the last of his strength and spirit, Osiris seeks to change the course of fate, this time for the light over darkness.",
+   "MP5PerLevel" : 0.39,
+   "MagicProtection" : 30,
+   "MagicProtectionPerLevel" : 0.9,
+   "MagicalPower" : 0,
+   "MagicalPowerPerLevel" : 0,
+   "Mana" : 230,
+   "ManaPerFive" : 4.7,
+   "ManaPerLevel" : 40,
+   "Name" : "Osiris",
+   "OnFreeRotation" : "",
+   "Pantheon" : "Egyptian",
+   "PhysicalPower" : 39,
+   "PhysicalPowerPerLevel" : 2.25,
+   "PhysicalProtection" : 17,
+   "PhysicalProtectionPerLevel" : 3,
+   "Pros" : " High Defense, High Attack Speed",
+   "Roles" : " Warrior",
+   "Speed" : 375,
+   "Title" : "Broken God of the Afterlife",
+   "Type" : " Melee, Physical",
+   "abilityDescription1" : {},
+   "abilityDescription2" : {},
+   "abilityDescription3" : {},
+   "abilityDescription4" : {},
+   "abilityDescription5" : {},
+   "basicAttack" : 
+    {"itemDescription" : 
+      {"cooldown" : "",
+       "cost" : "",
+       "description" : "",
+       "menuitems" : 
+        [{"description" : "Damage:", "value" : "39 + 2.25/Lvl (+100% of Physical Power)"},
+         {"description" : "Progression:", "value" : "0.5/1/0.5/1x damage. The last two attacks hit all enemies in the melee area."}],
+       "rankitems" : [],
+       "secondaryDescription" : ""}},
+   "godAbility1_URL" : "http://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/2000_9946.jpg",
+   "godAbility2_URL" : "http://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/2000_9947.jpg",
+   "godAbility3_URL" : "http://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/2000_9953.jpg",
+   "godAbility4_URL" : "http://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/2000_10000.jpg",
+   "godAbility5_URL" : "http://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/2000_9973.jpg",
+   "godCard_URL" : "http://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/standardosiris_card.jpg",
+   "godIcon_URL" : "http://hirezstudios.blob.core.windows.net/sitefinity/smite-god-icons/2000.jpg",
+   "id" : 2000,
+   "latestGod" : "n",
+   "ret_msg" : null
+  }
+]
