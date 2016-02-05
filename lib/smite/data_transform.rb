@@ -24,7 +24,8 @@ module Smite
 
         data['abilities'] = ability_fields.values.map do |ability_data|
           data_attrs = ability_data.slice('Id', 'Summary', 'URL')
-          desc       = ability_data['Description']['itemDescription']
+          desc       = ability_data['Description']
+          desc       = desc.nil? ? {} : desc['itemDescription']
 
           Ability.new(data_attrs.merge(desc))
         end

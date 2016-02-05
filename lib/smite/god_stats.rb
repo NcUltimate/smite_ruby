@@ -6,7 +6,7 @@ module Smite
       super(data)
       @name   = god_name
       @items  = params[:items] || []
-      @level  = (params[:level].to_i - 1) % 20
+      @level  = [[(params[:level].to_i - 1), 19].min, 0].max
     end
 
     def at_level(new_level)
@@ -18,14 +18,15 @@ module Smite
     end
 
     def movement_speed
-      from_items = item_bonus[:movement_speed]
+      from_items = bonus_from_items[:movement_speed]
       base       = data['movement_speed']
+      scaling    = movement_speed_per_level * level
 
-      from_items + base
+      from_items + base + scaling
     end
 
     def health
-      from_items  = item_bonus[:health]
+      from_items  = bonus_from_items[:health]
       base        = data['health']
       scaling     = health_per_level * level
 
@@ -33,7 +34,7 @@ module Smite
     end
 
     def mana
-      from_items  = item_bonus[:mana]
+      from_items  = bonus_from_items[:mana]
       base        = data['mana']
       scaling     = mana_per_level * level
 
@@ -41,7 +42,7 @@ module Smite
     end
 
     def mp5
-      from_items  = item_bonus[:mp5]
+      from_items  = bonus_from_items[:mp5]
       base        = data['mp5']
       scaling     = (mp5_per_level * level.to_f).to_i
       
@@ -49,7 +50,7 @@ module Smite
     end
 
     def hp5
-      from_items  = item_bonus[:hp5]
+      from_items  = bonus_from_items[:hp5]
       base        = data['hp5']
       scaling     = (hp5_per_level * level.to_f).to_i
       
@@ -57,38 +58,46 @@ module Smite
     end
 
     def attack_speed
-      from_items  = item_bonus[:attack_speed]
+      from_items  = bonus_from_items[:attack_speed]
       base        = data['attack_speed']
       scaling     = (attack_speed_per_level * level.to_f).to_i
       
       from_items + base + scaling
     end
 
-    def magic_power
-      from_items  = item_bonus[:magic_power]
-      base        = data['magic_power']
-      scaling     = magic_power_per_level * level
+    def magical_power
+      from_items  = bonus_from_items[:magical_power]
+      base        = data['magical_power']
+      scaling     = magical_power_per_level * level
       
       from_items + base + scaling
     end
 
     def magic_protection
-      from_items  = item_bonus[:magic_protection]
+      from_items  = bonus_from_items[:magic_protection]
       base        = data['magic_protection']
       scaling     = (magic_protection_per_level * level.to_f).to_i
       
       from_items + base + scaling
     end
 
+    def physical_power
+      from_items  = bonus_from_items[:physical_power]
+      base        = data['physical_power']
+      scaling     = physical_power_per_level * level
+      
+      from_items + base + scaling
+    end
+
     def physical_protection
-      from_items  = item_bonus[:physical_protection]
+      from_items  = bonus_from_items[:physical_protection]
       base        = data['physical_protection']
       scaling     = (physical_protection_per_level * level.to_f).to_i
       
       from_items + base + scaling
     end
 
-    def item_bonus
+    def bonus_from_items
       return @item_bonus unless @item_bonus.nil?
 
       @item_bonus = default_bonus
@@ -114,6 +123,10 @@ module Smite
 
     def default_bonus
       @default_bonus ||= attributes.each_with_object({}) { |attr, hash| hash[attr.to_sym] = 0 }
+    end
+
+    def movement_speed_per_level
+      0
     end
   end
 end

@@ -5,16 +5,11 @@ module Smite
     end
 
     def level
-      case rank
-      when 0      then  'none'
-      when (1..4) then  'gold'
-      when (5..9) then  'legendary'
-      when 10     then  'diamond'
-      end
+      self.class.level(rank)
     end
 
     def mastery
-      mastered ? 'mastered' : 'unmastered'
+      mastered? ? 'mastered' : 'unmastered'
     end
 
     def mastered?
@@ -23,6 +18,15 @@ module Smite
 
     def inspect
       "#<Smite::GodRank '#{god.name}' Lvl. #{rank} (#{level})>"
+    end
+
+    def self.level(rank)
+      case rank
+      when 0      then  'none'
+      when (1..4) then  'gold'
+      when (5..9) then  'legendary'
+      when 10     then  'diamond'
+      end
     end
   end
 end

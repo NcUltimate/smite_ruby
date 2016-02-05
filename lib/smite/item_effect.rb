@@ -1,6 +1,6 @@
 module Smite
   class ItemEffect < Smite::Object
-    attr_reader :device_name, :percentage
+    attr_reader :device_name
 
     def initialize(item, data)
       @device_name = item
@@ -8,7 +8,7 @@ module Smite
     end
 
     def percentage?
-      !@percentage.nil?
+      !percentage.nil?
     end
 
     def inspect

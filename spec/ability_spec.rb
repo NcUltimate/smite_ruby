@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 RSpec.describe Smite::Ability do
-  it 'tests' do
+  let(:agni)      { Smite::Game.god('Agni') }
+  let(:smite_obj) { agni.abilities[0] }
 
-  end
+  it_behaves_like 'a Smite::Object'
 end

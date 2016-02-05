@@ -47,5 +47,7 @@ RSpec.configure do |config|
         status: 200
       )
     end
+    
+    Smite::Game.authenticate!(1234, 'ABCD')
   end
 end

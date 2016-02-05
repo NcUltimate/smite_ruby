@@ -1,12 +1,10 @@
 require 'spec_helper'
 
 RSpec.describe Smite::Game do
-  let(:dev_id)   { 1234 }
-  let(:auth_key) { 'ABCD' }
-
-  before { Smite::Game.authenticate!(dev_id, auth_key) }
-
   describe '#authenticate!' do
+    let(:dev_id)    { 1234 }
+    let(:auth_key)  { 'ABCD' }
+
     it 'returns true if the client initialized a session' do
       client = Smite::Client.new(dev_id, auth_key)
       allow(client).to receive(:session_id).and_return('ABCDE')
@@ -26,7 +24,7 @@ RSpec.describe Smite::Game do
 
   describe '#devices' do
     it 'returns a list of Smite::Items' do
-      expect(Smite::Game.devices.count).to eq(3)
+      expect(Smite::Game.devices.count).to eq(6)
       Smite::Game.devices.each do |device|
         expect(device.class).to eq(Smite::Item)
       end
@@ -83,7 +81,7 @@ RSpec.describe Smite::Game do
 
   describe '#gods' do
     it 'returns a list of Smite::God' do
-      expect(Smite::Game.gods.count).to eq(1)
+      expect(Smite::Game.gods.count).to eq(3)
       Smite::Game.gods.each do |god|
         expect(god.class).to eq(Smite::God)
       end

@@ -1,6 +1,6 @@
 module Smite
   class Client
-    attr_reader :dev_id, :auth_key, :session_id, :lang
+    attr_reader :dev_id, :auth_key, :session_id, :lang, :created
     include HTTParty
     base_uri 'http://api.smitegame.com/smiteapi.svc/'
 
@@ -8,6 +8,7 @@ module Smite
       @dev_id     = dev_id
       @auth_key   = auth_key
       @lang       = [1,2,3,7,9,10,11,12,13].include?(lang) ? lang : 1
+      @created    = Time.now - 20 * 60
       create_session
     end
 
@@ -106,17 +107,20 @@ module Smite
     def create_session
       return @session_id if valid_session?
 
-      response    = api_call('createsession', [], false)
-      @session_id = response['session_id']
+      response      = api_call('createsession', [], false)
+      @session_id   = response['session_id']
+      @created      = Time.now
     end
 
     def valid_session?
-      !!(test_session =~ /successful/i)
+      (created + (15 * 60)) > Time.now
     end
 
     private
 
     def api_call(method, params = [], session = true)
+      create_session if !valid_session? && session
+
       request = request_str(method, params, session)
       self.class.get(request)
     end

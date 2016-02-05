@@ -28,7 +28,7 @@ RSpec.describe Smite::Client do
     end
 
     it 'returns false if the session is not created' do
-      allow(client).to receive(:test_session).and_return('failure')
+      allow(client).to receive(:created).and_return(Time.now - 20 * 60)
       expect(client.valid_session?).to eq(false)
     end
   end
@@ -36,10 +36,7 @@ RSpec.describe Smite::Client do
   describe '#create_session' do
     let(:client) { described_class.new(dev_id, auth_key) }
 
-    it 'sets the session_id if unset' do
-      allow(client).to receive(:valid_session?).and_return(false)
-      expect(client.session_id).to be_nil
-      client.create_session
+    it 'sets the session_id on initialize' do
       expect(client.session_id).not_to be_nil
     end
 

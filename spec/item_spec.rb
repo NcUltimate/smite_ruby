@@ -9,8 +9,6 @@ RSpec.describe Smite::Item do
   let(:potion)          { Smite::Game.item('Potion of Magical Might') }
   let(:smite_obj)       { sovereignty }
 
-  before { Smite::Game.authenticate!(1234, 'ABCD') }
-
   describe '#active?' do
     it 'returns true if the device is an active' do
       expect(aegis.active?).to eq(true)

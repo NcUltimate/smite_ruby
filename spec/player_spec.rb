@@ -4,8 +4,6 @@ RSpec.describe Smite::Player do
   let(:player)    { Smite::Game.player('adapting') }
   let(:smite_obj) { player }
 
-  before { Smite::Game.authenticate!(1234, 'ABCD') }
-
   describe '#friends' do
     it 'only includes friends with a non-empty name' do
       expect(player.friends.count).to eq(5)

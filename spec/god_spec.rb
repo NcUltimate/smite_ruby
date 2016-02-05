@@ -6,8 +6,6 @@ RSpec.describe Smite::God do
   let(:agni)      { Smite::Game.god('Agni') }
   let(:smite_obj) { agni }
 
-  before { Smite::Game.authenticate!(1234, 'ABCD') }
-
   describe '#on_free_rotation?' do
     it 'returns true if not empty' do
       expect(agni.on_free_rotation?).to eq(true)
