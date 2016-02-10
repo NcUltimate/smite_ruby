@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Smite::Match do
+RSpec.describe Smite::FullMatch do
   it 'tests' do
 
   end

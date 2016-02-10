@@ -34,14 +34,14 @@ RSpec.configure do |config|
       getteamplayers
       gettopmatches
       getmatchdetails
-      getachievements
+      getplayerachievements
       getfriends
       getgodranks
       getplayer
       getmatchhistory
       getsearchteams
     ).each do |method|
-      WebMock.stub_request(:get, /#{method}/).to_return(
+      WebMock.stub_request(:get, /smiteapi\.svc\/#{method}json\//).to_return(
         body: response_body(method),
         headers: { content_type: 'application/json' },
         status: 200

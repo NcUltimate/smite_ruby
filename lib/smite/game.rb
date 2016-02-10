@@ -22,12 +22,13 @@ module Smite
       end
 
       def match(match_id)
-        @matches           ||= {}
-        @matches[match_id] ||= Match.new(client.match_details(match_id))
+        match_data = client.match_details(match_id)
+        match_data.empty? ? nil : FullMatch.new(match_data)
       end
 
-      def player(player_name)
-        Player.new(player_name)
+      def player(player_name_or_id)
+        player_data = client.player(player_name_or_id)
+        player_data.empty? ? nil : Player.new(player_data[0])
       end
 
       def motd_now

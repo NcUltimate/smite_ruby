@@ -43,16 +43,16 @@ RSpec.describe Smite::Player do
   end
 
   describe '#match_history' do
-    it 'creates new Smite::RecentMatch objects' do
+    it 'creates new Smite::MatchSummary objects' do
       player.match_history.each do |match|
-        expect(match.class).to eq(Smite::RecentMatch)
+        expect(match.class).to eq(Smite::MatchSummary)
       end
     end
 
     it 'caches the match_history' do
       player.match_history
       expect(Smite::Game.client).not_to receive(:match_history)
-      expect(Smite::RecentMatch).not_to receive(:new)
+      expect(Smite::MatchSummary).not_to receive(:new)
       player.match_history
     end
   end

@@ -2,9 +2,9 @@ module Smite
   class Player < Smite::Object
     attr_reader :player_name
 
-    def initialize(player_name)
-      @player_name  = player_name
-      super(Smite::Game.client.player(player_name)[0])
+    def initialize(data)
+      super(data)
+      @player_name = name.match(/\A(\[.+?\])?(.+)/)[2]
     end
 
     def friends
@@ -26,7 +26,7 @@ module Smite
       return @history unless @history.nil?
 
       @history = Smite::Game.client.match_history(player_name)
-      @history.map!(&RecentMatch.method(:new))
+      @history.map!(&MatchSummary.method(:new))
     end
 
     def achievements

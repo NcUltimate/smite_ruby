@@ -33,13 +33,13 @@ module Smite
         data.except(*ability_filter_fields)
       end
 
-      def transform_recent_match(data)
+      def transform_match_summary(data)
         return data unless data['queue']
 
         if data['queue'] =~ /League/
           data
         else
-          data.except(*recent_match_filter_fields)
+          data.except(*match_summary_filter_fields)
         end
       end
 
@@ -68,7 +68,39 @@ module Smite
         data
       end
 
+      def transform_match_achievements(data)
+        ach_fields = data.slice(*match_achievement_map_fields)
+        return data if ach_fields.empty?
+
+        data['match_achievements'] = MatchAchievements.new(ach_fields)
+        data.except(*match_achievement_filter_fields)
+      end
+
       private
+
+      def match_achievement_map_fields
+        %w[
+          kills_bot
+          kills_double
+          kills_fire_giant
+          kills_first_blood
+          kills_gold_fury
+          kills_penta
+          kills_phoenix
+          kills_player
+          kills_quadra
+          kills_siege_juggernaut
+          kills_single
+          kills_triple
+          kills_wild_juggernaut
+          player_name
+          match
+        ]
+      end
+
+      def match_achievement_filter_fields
+        match_achievement_map_fields - %w(player_name match)
+      end
 
       def item_map_fields
         %w(
@@ -81,6 +113,9 @@ module Smite
         item_map_fields + %w(
           item_1 item_2 item_3 item_4 item_5
           item_6 active_1 active_2 active_3
+          item_active_1 item_active_2 item_active_3
+          item_purch_1 item_purch_2 item_purch_3
+          item_purch_4 item_purch_5 item_purch_6
         )
       end
 
@@ -99,7 +134,7 @@ module Smite
         )
       end
 
-      def recent_match_filter_fields
+      def match_summary_filter_fields
         %w(
           ban1 ban2 ban3 ban4 ban5 ban6
           ban1_id ban2_id ban3_id
