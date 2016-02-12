@@ -4,7 +4,8 @@ module Smite
     def initialize(data)
       super(data)
       effects              = @data.delete('item_description')
-      @data['description'] = effects.delete('Description')
+      @data['passive']     = effects['SecondaryDescription']
+      @data['description'] = effects['Description']
       @data['effects']     = effects['Menuitems'].map do |eff|
         ItemEffect.new(device_name, eff)
       end
@@ -24,6 +25,14 @@ module Smite
 
     def starter?
       starting_item
+    end
+
+    def passive?
+      !passive.empty?
+    end
+
+    def aura?
+      !!(passive =~ /AURA/)
     end
 
     def name

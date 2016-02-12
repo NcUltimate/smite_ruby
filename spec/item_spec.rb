@@ -3,6 +3,7 @@ require 'spec_helper'
 RSpec.describe Smite::Item do
   let(:vampiric_shroud) { Smite::Game.item("Vampiric Shroud") }
   let(:shifters_shield) { Smite::Game.item("Shifter's Shield") }
+  let(:iron_mail)       { Smite::Game.item('Iron Mail') }
   let(:soul_reaver)     { Smite::Game.item('Soul Reaver') }
   let(:sovereignty)     { Smite::Game.item('Sovereignty') }
   let(:aegis)           { Smite::Game.item('Improved Aegis') }
@@ -76,6 +77,30 @@ RSpec.describe Smite::Item do
       expect(aegis.starter?).to eq(false)
       expect(soul_reaver.starter?).to eq(false)
       expect(sovereignty.starter?).to eq(false)
+    end
+  end
+
+  describe '#passive?' do
+    it 'returns true if the item has a passive' do
+      expect(soul_reaver.passive?).to eq(true)
+      expect(sovereignty.passive?).to eq(true)
+      expect(aegis.passive?).to eq(true)
+      expect(potion.passive?).to eq(true)
+    end
+    it 'returns false if the item does not have a passive' do
+      expect(iron_mail.passive?).to eq(false)
+    end
+  end
+
+  describe '#aura?' do
+    it 'returns true if the item give off an aura' do
+      expect(sovereignty.aura?).to eq(true)
+    end
+    it 'returns false if the item does not have a passive' do
+      expect(aegis.aura?).to eq(false)
+      expect(potion.aura?).to eq(false)
+      expect(soul_reaver.aura?).to eq(false)
+      expect(iron_mail.aura?).to eq(false)
     end
   end
 

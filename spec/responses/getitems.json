@@ -1,5 +1,23 @@
 [ 
   {
+    "ChildItemId" : 0,
+    "DeviceName" : "Iron Mail",
+    "IconId" : 2866,
+    "ItemDescription" : 
+     {"Description" : "Physical Protection and Health.",
+      "Menuitems" : [{"Description" : "Health", "Value" : "+100"}, {"Description" : "Physical Protection", "Value" : "+20"}],
+      "SecondaryDescription" : ""},
+    "ItemId" : 7526,
+    "ItemTier" : 1,
+    "Price" : 725,
+    "RootItemId" : 7526,
+    "ShortDesc" : "Physical Protection and Health.",
+    "StartingItem" : false,
+    "Type" : "Item",
+    "itemIcon_URL" : "http://hirezstudios.blob.core.windows.net/sitefinity/smite-items/2866.jpg",
+    "ret_msg" : null
+  },
+  {
     "ChildItemId" : 7527,
     "DeviceName" : "Sovereignty",
     "IconId" : 2864,
