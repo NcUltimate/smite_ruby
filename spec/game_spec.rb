@@ -24,7 +24,7 @@ RSpec.describe Smite::Game do
 
   describe '#devices' do
     it 'returns a list of Smite::Items' do
-      expect(Smite::Game.devices.count).to eq(6)
+      expect(Smite::Game.devices.count).to eq(7)
       Smite::Game.devices.each do |device|
         expect(device.class).to eq(Smite::Item)
       end
@@ -81,7 +81,7 @@ RSpec.describe Smite::Game do
 
   describe '#gods' do
     it 'returns a list of Smite::God' do
-      expect(Smite::Game.gods.count).to eq(3)
+      expect(Smite::Game.gods.count).to eq(5)
       Smite::Game.gods.each do |god|
         expect(god.class).to eq(Smite::God)
       end

@@ -25,6 +25,31 @@ module Smite
     def magic?
       !physical?
     end
+    alias_method :magical?, :magic?
+
+    def role
+      @role ||= roles.strip
+    end
+
+    def mage?
+      !!(roles =~ /Mage/)
+    end
+
+    def hunter?
+      !!(roles =~ /Hunter/)
+    end
+
+    def assassin?
+      !!(roles =~ /Assassin/)
+    end
+
+    def guardian?
+      !!(roles =~ /Guardian/)
+    end
+
+    def warrior?
+      !!(roles =~ /Warrior/)
+    end
 
     def inspect
       "#<Smite::God #{id} '#{name}'>"

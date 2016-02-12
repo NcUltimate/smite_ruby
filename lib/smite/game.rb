@@ -61,6 +61,14 @@ module Smite
         @gods ||= client.gods.map(&God.method(:new))
       end
 
+      def roles
+        @roles ||= gods.map { |g| g.roles.strip }.uniq
+      end
+
+      def pantheons
+        @pantheons ||= gods.map(&:pantheon).uniq
+      end
+
       def devices
         @devices ||= client.items.map(&Item.method(:new))
       end

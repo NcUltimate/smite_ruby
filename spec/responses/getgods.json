@@ -457,5 +457,309 @@
    "id" : 2000,
    "latestGod" : "n",
    "ret_msg" : null
+  },
+  {
+    "Ability1" : "Vanish",
+    "Ability2" : "Decoy",
+    "Ability3" : "Aimed Strike",
+    "Ability4" : "Assassinate",
+    "Ability5" : "Behind You!",
+    "AbilityId1" : 8425,
+    "AbilityId2" : 8427,
+    "AbilityId3" : 8464,
+    "AbilityId4" : 8453,
+    "AbilityId5" : 8412,
+    "Ability_1" : 
+     {"Description" : 
+       {"itemDescription" : 
+         {"cooldown" : "15s",
+          "cost" : "70/75/80/85/90",
+          "description" : 
+           "Loki disappears in a puff of smoke. While invisible, he moves faster, removes and gains immunity to Slow effects, and takes 25% less damage. His next basic attack from stealth (or for 2s after) applies a bleed to his target, dealing damage every .5s and reveals Loki.",
+          "menuitems" : 
+           [{"description" : "Ability:", "value" : "Melee Target"},
+            {"description" : "Affects:", "value" : "Enemy"},
+            {"description" : "Damage:", "value" : "Physical"}],
+          "rankitems" : 
+           [{"description" : "Damage per Tick:", "value" : "30/45/60/75/90 (+25% of your physical power)"},
+            {"description" : "Damage Duration:", "value" : "2s"},
+            {"description" : "Stealth Duration:", "value" : "4s"},
+            {"description" : "Stealth Movement Speed:", "value" : "35%"}],
+          "secondaryDescription" : ""}},
+      "Id" : 8425,
+      "Summary" : "Vanish",
+      "URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/1797_8425.jpg"},
+    "Ability_2" : 
+     {"Description" : 
+       {"itemDescription" : 
+         {"cooldown" : "14s",
+          "cost" : "60/65/70/75/80",
+          "description" : 
+           "Loki spawns a decoy version of himself that taunts all nearby enemy minions. After a short time, the decoy explodes dealing damage to all enemies in the radius.",
+          "menuitems" : 
+           [{"description" : "Ability:", "value" : "Ground Target"},
+            {"description" : "Affects:", "value" : "Enemy"},
+            {"description" : "Damage:", "value" : "Physical"},
+            {"description" : "Radius:", "value" : "20"}],
+          "rankitems" : 
+           [{"description" : "Damage:", "value" : "75/125/175/225/275 (+100% of your physical power)"},
+            {"description" : "Decoy Lifetime:", "value" : "3s"}],
+          "secondaryDescription" : ""}},
+      "Id" : 8427,
+      "Summary" : "Decoy",
+      "URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/1797_8427.jpg"},
+    "Ability_3" : 
+     {"Description" : 
+       {"itemDescription" : 
+         {"cooldown" : "12/11/10/9/8s",
+          "cost" : "50",
+          "description" : 
+           "Upon activation, Loki's next basic attack does additional damage within a short time. The enemy hit is also slowed.",
+          "menuitems" : 
+           [{"description" : "Ability:", "value" : "Buff"},
+            {"description" : "Affects:", "value" : "Self"},
+            {"description" : "Damage:", "value" : "Physical"}],
+          "rankitems" : 
+           [{"description" : "Damage:", "value" : "60/100/140/180/220 (+100% of your physical power)"},
+            {"description" : "Buff Lifetime:", "value" : "5s"},
+            {"description" : "Slow:", "value" : "25%"},
+            {"description" : "Slow Duration:", "value" : "3s"}],
+          "secondaryDescription" : ""}},
+      "Id" : 8464,
+      "Summary" : "Aimed Strike",
+      "URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/1797_8464.jpg"},
+    "Ability_4" : 
+     {"Description" : 
+       {"itemDescription" : 
+         {"cooldown" : "90s",
+          "cost" : "100",
+          "description" : 
+           "Upon activation, Loki teleports to his ground target location. If an enemy god is within the radius, Loki will backstab that target doing damage and stunning them.",
+          "menuitems" : 
+           [{"description" : "Ability:", "value" : "Teleport"},
+            {"description" : "Affects:", "value" : "Enemy Gods"},
+            {"description" : "Damage:", "value" : "Physical"}],
+          "rankitems" : 
+           [{"description" : "Damage:", "value" : "150/225/300/375/450 (+120% of your physical power)"},
+            {"description" : "Stun:", "value" : "1s"}],
+          "secondaryDescription" : ""}},
+      "Id" : 8453,
+      "Summary" : "Assassinate",
+      "URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/1797_8453.jpg"},
+    "Ability_5" : 
+     {"Description" : 
+       {"itemDescription" : 
+         {"cooldown" : "",
+          "cost" : "",
+          "description" : 
+           "Loki deals more damage from his basic attacks when hitting enemies from behind. His basic attacks also utilize a five swing progressive chain.",
+          "menuitems" : [{"description" : "Ability:", "value" : "Buff"}, {"description" : "Affects:", "value" : "Self"}],
+          "rankitems" : [{"description" : "Bonus Damage:", "value" : "20%"}],
+          "secondaryDescription" : ""}},
+      "Id" : 8412,
+      "Summary" : "Behind You!",
+      "URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/1797_8412.jpg"},
+    "AttackSpeed" : 1,
+    "AttackSpeedPerLevel" : 0.019,
+    "Cons" : "",
+    "HP5PerLevel" : 0.7,
+    "Health" : 395,
+    "HealthPerFive" : 8,
+    "HealthPerLevel" : 75,
+    "Lore" : 
+     "Villain. It’s a word used to describe those that break the rules, that take what they want, and care nothing for those hurt along the way. Loki, the trickster God, would say villainy is nothing more than a point of view.\\n\\nThe point of view of fools too mindless to seize opportunity.\\n\\nOf course, with Loki now on the loose, the implications are dire. The end of times may be at hand. The final battle, Ragnarok, possibly on the horizon, for it was foretold that Loki would break free of his prison and herald the horrific final battle that would leave the Gods slain, the heavens sundered, and the world in ashes. None are more eager for that time of chaos than Loki.\\n\\nBefore his confinement, Loki’s malicious mischief managed to affect every God in ways both beneficial and terrible. Yet Loki’s most heinous act was in the death of the God of light, Baldr.\\n\\nBaldr’s prophetic dreams showcased his own death. Fearful for her son, Frigg, forced all objects of the world to swear never to harm him. All save mistletoe. Cruelly amused, Loki forged a spear from the plant and provided it to Baldr’s brother Hodr. The Gods had a new favorite game, hurling objects at Baldr and laughing as they harmlessly ricocheted. So Hodr threw the spear, but, to everyone’s horror Baldr was impaled. Hel agreed to release Baldr from the underworld if all creatures of the world mourned the God of Light.  And all did, save one crone who refused. So Baldr died.\\n\\nWhen it was discovered the crone was Loki in disguise, the furious Gods bound him in entrails and hung a venomous serpent overhead. Loki’s wife, Sigyn, collected the dripping venom in a bowl, but when she was forced to empty it, Loki was struck, causing such anguish his thrashing would shake the world.\\n\\nBut now Loki is free and already wreaking havoc. If the prophetic Volva are correct, and they always are, then the end of all things has finally come.",
+    "MP5PerLevel" : 0.35,
+    "MagicProtection" : 30,
+    "MagicProtectionPerLevel" : 0.9,
+    "MagicalPower" : 0,
+    "MagicalPowerPerLevel" : 0,
+    "Mana" : 210,
+    "ManaPerFive" : 4.2,
+    "ManaPerLevel" : 35,
+    "Name" : "Loki",
+    "OnFreeRotation" : "",
+    "Pantheon" : "Norse",
+    "PhysicalPower" : 38,
+    "PhysicalPowerPerLevel" : 2.4,
+    "PhysicalProtection" : 11,
+    "PhysicalProtectionPerLevel" : 2.9,
+    "Pros" : " High Single Target Damage",
+    "Roles" : " Assassin",
+    "Speed" : 375,
+    "Title" : "The Trickster God",
+    "Type" : " Melee, Physical",
+    "abilityDescription1" : {},
+    "abilityDescription2" : {},
+    "abilityDescription3" : {},
+    "abilityDescription4" : {},
+    "abilityDescription5" : {},
+    "basicAttack" : 
+     {"itemDescription" : 
+       {"cooldown" : "",
+        "cost" : "",
+        "description" : "",
+        "menuitems" : 
+         [{"description" : "Damage:", "value" : "38 + 2.4/Lvl (+100% of Physical Power)"},
+          {"description" : "Progression:", "value" : "1/.5/.5/.5/1.5x damage and swing time"}],
+        "rankitems" : [],
+        "secondaryDescription" : ""}},
+    "godAbility1_URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/1797_8425.jpg",
+    "godAbility2_URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/1797_8427.jpg",
+    "godAbility3_URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/1797_8464.jpg",
+    "godAbility4_URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/1797_8453.jpg",
+    "godAbility5_URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/1797_8412.jpg",
+    "godCard_URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/Loki_Default_Card.jpg",
+    "godIcon_URL" : "http://hirezstudios.blob.core.windows.net/sitefinity/smite-god-icons/1797.jpg",
+    "id" : 1797,
+    "latestGod" : "n",
+    "ret_msg" : null
+  },
+  {
+    "Ability1" : "Astral Strike",
+    "Ability2" : "Pick Me Up",
+    "Ability3" : "Rolling Assault",
+    "Ability4" : "Astral Barrage",
+    "Ability5" : "Astral Quiver",
+    "AbilityId1" : 10160,
+    "AbilityId2" : 10162,
+    "AbilityId3" : 10038,
+    "AbilityId4" : 10116,
+    "AbilityId5" : 10144,
+    "Ability_1" : 
+     {"Description" : 
+       {"itemDescription" : 
+         {"cooldown" : "",
+          "cost" : "25 + 1 arrow per shot",
+          "description" : 
+           "Rama switches to a more powerful arrow that pierces and slows enemies. This ability consumes 1 of Rama's Astral Arrows and deals bonus damage with every shot. Damage from this ability is reduced to 75% for each enemy hit after the first. Rama cannot toggle this ability if he has no Astral Arrows.\n\n The slow can be stacked up to 3 times.",
+          "menuitems" : 
+           [{"description" : "Ability:", "value" : "Buff"},
+            {"description" : "Affects:", "value" : "Self"},
+            {"description" : "Damage:", "value" : "Physical"}],
+          "rankitems" : 
+           [{"description" : "Slow %:", "value" : "10% "},
+            {"description" : "Time Slowed:", "value" : "1s"},
+            {"description" : "Bonus Damage:", "value" : "10/20/30/40/50"}],
+          "secondaryDescription" : ""}},
+      "Id" : 10160,
+      "Summary" : "Astral Strike",
+      "URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/2002_10160.jpg"},
+    "Ability_2" : 
+     {"Description" : 
+       {"itemDescription" : 
+         {"cooldown" : "15/14/13/12/11s",
+          "cost" : "80/85/90/95/100",
+          "description" : 
+           "Passive: Any time an enemy is hit by an Astral Arrow there is a % chance that an Astral Arrow pickup will appear on the ground (Only procs on the first enemy hit by Astral Strike). The pickup adds one Arrow to Rama's Astral Arrow count.\n\nActive: Rama gains increased attack speed.\r\n",
+          "menuitems" : [{"description" : "Ability:", "value" : "Buff, Pickup"}, {"description" : "Affects:", "value" : "Self"}],
+          "rankitems" : 
+           [{"description" : "Drop chance for Arrow Pickup:", "value" : "10/20/30/40/50% "},
+            {"description" : "Attack Speed Increase:", "value" : "30/35/40/45/50% for 5s."}],
+          "secondaryDescription" : ""}},
+      "Id" : 10162,
+      "Summary" : "Pick Me Up",
+      "URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/2002_10162.jpg"},
+    "Ability_3" : 
+     {"Description" : 
+       {"itemDescription" : 
+         {"cooldown" : "12/11/10/9/8s",
+          "cost" : "70/75/80/85/90",
+          "description" : 
+           "Rama performs a roll in the direction he is currently traveling. After performing a dodge roll, for 5s Rama's next basic attack will consume an astral arrow that cripples the target and deals bonus damage. Rama incurs no movement penalty during this shot. ",
+          "menuitems" : 
+           [{"description" : "Ability:", "value" : "Dash"},
+            {"description" : "Affects:", "value" : "Enemies"},
+            {"description" : "Damage:", "value" : "Physical"}],
+          "rankitems" : 
+           [{"description" : "Cripple Duration:", "value" : "1/1.25/1.5/1.75/2s"},
+            {"description" : "Bonus Damage:", "value" : "20/40/60/80/100 "}],
+          "secondaryDescription" : ""}},
+      "Id" : 10038,
+      "Summary" : "Rolling Assault",
+      "URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/2002_10038.jpg"},
+    "Ability_4" : 
+     {"Description" : 
+       {"itemDescription" : 
+         {"cooldown" : "90s",
+          "cost" : "100/110/120/130/140",
+          "description" : 
+           "Rama launches into the air and shoots 3 powerful arrows at the ground, each successive shot increasing in damage: 50%, 75%, 100% and decreasing in AOE size: 30, 20, 15.",
+          "menuitems" : 
+           [{"description" : "Ability:", "value" : "AOE"},
+            {"description" : "Affects:", "value" : "Enemy"},
+            {"description" : "Damage:", "value" : "Physical"},
+            {"description" : "Radius:", "value" : "30/20/15"}],
+          "rankitems" : [{"description" : "Damage:", "value" : "200/300/400/500/600 (+60% of your physical power)"}],
+          "secondaryDescription" : ""}},
+      "Id" : 10116,
+      "Summary" : "Astral Barrage",
+      "URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/2002_10116.jpg"},
+    "Ability_5" : 
+     {"Description" : 
+       {"itemDescription" : 
+         {"cooldown" : "",
+          "cost" : "",
+          "description" : 
+           "Rama's Astral Quiver generates an Astral Arrow every 15s. Also, every basic attack that Rama lands will reduce the amount of time to generate an arrow by 2s. Astral Arrows are used with his other abilities. ",
+          "menuitems" : [{"description" : "Affects:", "value" : "Self"}],
+          "rankitems" : [],
+          "secondaryDescription" : ""}},
+      "Id" : 10144,
+      "Summary" : "Astral Quiver",
+      "URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/2002_10144.jpg"},
+    "AttackSpeed" : 0.95,
+    "AttackSpeedPerLevel" : 0.016,
+    "Cons" : "",
+    "HP5PerLevel" : 0.65,
+    "Health" : 460,
+    "HealthPerFive" : 8,
+    "HealthPerLevel" : 76,
+    "Lore" : 
+     "Ravana's immortal reign subjugates the people. Shiva's boon grants the demon-king invulnerability against gods and beasts. Only mortal men stand a chance of defeating him, but Ravana's might is too potent for a mere man to overcome. All seems lost.\\n\\nTo save us, Vishnu took human form. Rama, prince of Ayodhya.\\n\\nAt age 16 he was already the perfect embodiment of man. Strong, humble, handsome, patient, devout; he is what mankind strives to be, yet, for all our flaws, can never reach.\\n\\nWhen a neighboring kingdom, cursed by Ravana's magic, asked for aid, Rama answered, despite the misgivings of his father. With his brother Laksharma, Rama set out and slew a horde of demons. At the palace, Rama cleansed the curse by freeing the queen from stone. The city celebrated and Rama was invited to string Shiva's bow – with the prize princess Sita's hand in marriage. Shiva's bow could not be lifted by any man, let alone strung, but Rama broke the bow in half. He and Sita wed immediately.\\n\\nReturning home, Rama was to be crown prince, but the jealousy of queen Kaikeyi forced Rama into exile, where he's remained these past fourteen years.\\n\\nYet Rama was recently seen on the field of battle. Word is, Ravana stole Rama's wife, and Rama left exile to embrace his destiny. He must defeat Ravana, free his wife, and set mankind on a path for peace, else darkness and evil will conquer all.",
+    "MP5PerLevel" : 0.25,
+    "MagicProtection" : 30,
+    "MagicProtectionPerLevel" : 0.9,
+    "MagicalPower" : 0,
+    "MagicalPowerPerLevel" : 0,
+    "Mana" : 205,
+    "ManaPerFive" : 4.5,
+    "ManaPerLevel" : 34,
+    "Name" : "Rama",
+    "OnFreeRotation" : "",
+    "Pantheon" : "Hindu",
+    "PhysicalPower" : 40,
+    "PhysicalPowerPerLevel" : 2.5,
+    "PhysicalProtection" : 12,
+    "PhysicalProtectionPerLevel" : 2.8,
+    "Pros" : " High Mobility, High Attack Speed",
+    "Roles" : " Hunter",
+    "Speed" : 365,
+    "Title" : "Seventh Avatar of Vishnu",
+    "Type" : " Ranged, Physical",
+    "abilityDescription1" : {},
+    "abilityDescription2" : {},
+    "abilityDescription3" : {},
+    "abilityDescription4" : {},
+    "abilityDescription5" : {},
+    "basicAttack" : 
+     {"itemDescription" : 
+       {"cooldown" : "",
+        "cost" : "",
+        "description" : "",
+        "menuitems" : 
+         [{"description" : "Damage:", "value" : "40 + 2.5/Lvl (+100% of Physical Power)"},
+          {"description" : "Progression:", "value" : "None"}],
+        "rankitems" : [],
+        "secondaryDescription" : ""}},
+    "godAbility1_URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/2002_10160.jpg",
+    "godAbility2_URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/2002_10162.jpg",
+    "godAbility3_URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/2002_10038.jpg",
+    "godAbility4_URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/2002_10116.jpg",
+    "godAbility5_URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/2002_10144.jpg",
+    "godCard_URL" : "https://hzweb.hi-rezgame.net/smite-web/wp-content/uploads/2015/05/standardrama_card.jpg",
+    "godIcon_URL" : "http://hirezstudios.blob.core.windows.net/sitefinity/smite-god-icons/2002.jpg",
+    "id" : 2002,
+    "latestGod" : "n",
+    "ret_msg" : null
   }
 ]
