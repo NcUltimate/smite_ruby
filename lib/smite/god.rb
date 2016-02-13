@@ -83,6 +83,10 @@ module Smite
       !!(pantheon =~ /Chinese/)
     end
 
+    def short_lore
+      lore.split('.')[0..2].join('.') + '.'
+    end
+
     def inspect
       "#<Smite::God #{id} '#{name}'>"
     end
