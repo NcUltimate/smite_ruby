@@ -14,87 +14,7 @@ module Smite
     end
 
     def with_items(new_items)
-      GodStats.new(name, @data, { level: level, items: new_items })
-    end
-
-    def movement_speed
-      from_items = bonus_from_items[:movement_speed]
-      base       = data['movement_speed']
-      scaling    = movement_speed_per_level * level
-
-      from_items + base + scaling
-    end
-
-    def health
-      from_items  = bonus_from_items[:health]
-      base        = data['health']
-      scaling     = health_per_level * level
-
-      from_items + base + scaling
-    end
-
-    def mana
-      from_items  = bonus_from_items[:mana]
-      base        = data['mana']
-      scaling     = mana_per_level * level
-
-      from_items + base + scaling
-    end
-
-    def mp5
-      from_items  = bonus_from_items[:mp5]
-      base        = data['mp5']
-      scaling     = (mp5_per_level * level.to_f).to_i
-      
-      from_items + base + scaling
-    end
-
-    def hp5
-      from_items  = bonus_from_items[:hp5]
-      base        = data['hp5']
-      scaling     = (hp5_per_level * level.to_f).to_i
-      
-      from_items + base + scaling
-    end
-
-    def attack_speed
-      from_items  = bonus_from_items[:attack_speed]
-      base        = data['attack_speed']
-      scaling     = (attack_speed_per_level * level.to_f).to_i
-      
-      from_items + base + scaling
-    end
-
-    def magical_power
-      from_items  = bonus_from_items[:magical_power]
-      base        = data['magical_power']
-      scaling     = magical_power_per_level * level
-      
-      from_items + base + scaling
-    end
-
-    def magic_protection
-      from_items  = bonus_from_items[:magic_protection]
-      base        = data['magic_protection']
-      scaling     = (magic_protection_per_level * level.to_f).to_i
-      
-      from_items + base + scaling
-    end
-
-    def physical_power
-      from_items  = bonus_from_items[:physical_power]
-      base        = data['physical_power']
-      scaling     = physical_power_per_level * level
-      
-      from_items + base + scaling
-    end
-
-    def physical_protection
-      from_items  = bonus_from_items[:physical_protection]
-      base        = data['physical_protection']
-      scaling     = (physical_protection_per_level * level.to_f).to_i
-      
-      from_items + base + scaling
+      GodStats.new(name, @data, { level: level + 1, items: new_items })
     end
 
     def bonus_from_items
@@ -119,7 +39,23 @@ module Smite
       "#<Smite::GodStats '#{name}' Level #{level + 1}>"
     end
 
+    def method_missing(method)
+      if data.member?(method.to_s) && !(method.to_s =~ /level/)
+        value_for(method)
+      else
+        super
+      end
+    end
+
     private
+
+    def value_for(attribute)
+      from_items = bonus_from_items[attribute.to_sym]
+      base       = data[attribute.to_s]
+      scaling    = send("#{attribute}_per_level".to_sym) * level.to_f
+
+      (from_items + base + scaling).round(2)
+    end
 
     def default_bonus
       @default_bonus ||= attributes.each_with_object({}) { |attr, hash| hash[attr.to_sym] = 0 }

@@ -51,6 +51,38 @@ module Smite
       !!(roles =~ /Warrior/)
     end
 
+    def hindu?
+      !!(pantheon =~ /Hindu/)
+    end
+
+    def mayan?
+      !!(pantheon =~ /Mayan/)
+    end
+
+    def greek?
+      !!(pantheon =~ /Greek/)
+    end
+
+    def roman?
+      !!(pantheon =~ /Roman/)
+    end
+
+    def egyptian?
+      !!(pantheon =~ /Egyptian/)
+    end
+
+    def japanese?
+      !!(pantheon =~ /Japanese/)
+    end
+
+    def norse?
+      !!(pantheon =~ /Norse/)
+    end
+
+    def chinese?
+      !!(pantheon =~ /Chinese/)
+    end
+
     def inspect
       "#<Smite::God #{id} '#{name}'>"
     end

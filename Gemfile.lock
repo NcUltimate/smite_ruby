@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    smite_ruby (1.4.61)
+    smite_ruby (1.4.64)
       activesupport
       httparty
 

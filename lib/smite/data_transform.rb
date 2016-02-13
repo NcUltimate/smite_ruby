@@ -62,7 +62,7 @@ module Smite
         data['attribute'] = effect
 
         value = data.delete('Value')
-        @percentage = value[/%/]
+        data['percentage'] = value[/%/]
         value = value.tr('+', '').to_i
         data['amount'] = value
         data

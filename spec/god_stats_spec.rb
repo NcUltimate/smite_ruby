@@ -21,6 +21,7 @@ RSpec.describe Smite::GodStats do
     it 'returns a new instance of GodStats at the given level' do
       new_stats = smite_obj.at_level(10)
       expect(new_stats.level).to eq(9)
+      expect(new_stats.items).to eq(smite_obj.items)
     end
   end
 
@@ -28,6 +29,7 @@ RSpec.describe Smite::GodStats do
     it 'returns a new instance of GodStats with the given items' do
       new_stats = smite_obj.with_items(items)
       expect(new_stats.items).to eq(items)
+      expect(new_stats.level).to eq(smite_obj.level)
     end
   end
 
@@ -37,7 +39,7 @@ RSpec.describe Smite::GodStats do
     scaling     = stats.send("#{attribute}_per_level".to_sym).to_f
     scaling     *= stats.level.to_f
 
-    from_items + base + scaling.to_i
+    (from_items + base + scaling).round(2)
   end
 
   %w[ movement_speed health mana
