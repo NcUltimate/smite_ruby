@@ -11,6 +11,10 @@ module Smite
       !percentage.nil?
     end
 
+    def to_h
+      { attribute => { amount: amount, percentage: percentage? } }
+    end
+
     def inspect
       "#<Smite::ItemEffect '#{device_name}' #{attribute} +#{amount}#{percentage}>"
     end

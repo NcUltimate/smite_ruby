@@ -57,15 +57,23 @@ module Smite
     end
 
     def physical?
-      @physical ||= !effects.map(&:attribute).any? do |eff|
-        eff =~ /magic(al)?_(power|pen)/
+      return @physical unless @physical.nil?
+
+      @physical = !(passive.downcase =~ /magic(al)? (pow|pen|lif|dam)/)
+      @physical &&= !effects.map(&:attribute).any? do |eff|
+        eff =~ /magic(al)?_(pow|pen|lif|dam)/
       end
+      @physical
     end
 
     def magic?
-      @magic ||= !effects.map(&:attribute).any? do |eff|
-        eff =~ /physical_(power|pen)/
+      return @magic unless @magic.nil?
+
+      @magic = !(passive.downcase =~ /physical (pow|pen|lif|dam)/)
+      @magic &&= !effects.map(&:attribute).any? do |eff|
+        eff =~ /physical_(pow|pen|lif|dam)/
       end
+      @magic
     end
 
     def inspect
