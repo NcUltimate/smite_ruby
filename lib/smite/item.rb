@@ -14,6 +14,7 @@ module Smite
     def active?
       type == 'Active'
     end
+    alias_method :relic?, :active?
 
     def consumable?
       type == 'Consumable'
@@ -33,6 +34,22 @@ module Smite
 
     def aura?
       !!(passive =~ /AURA/)
+    end
+
+    def cost
+      return @cost unless @cost.nil?
+      @cost     = price
+      child_id  = child_item_id
+      until child_id == 0
+        child = Smite::Game.item(child_id)
+        @cost += child.price
+        child_id = child.child_item_id
+      end
+      @cost
+    end
+
+    def tier
+      item_tier
     end
 
     def name

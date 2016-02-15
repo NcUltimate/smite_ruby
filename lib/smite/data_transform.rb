@@ -22,11 +22,13 @@ module Smite
         ability_fields = data.slice(*ability_map_fields)
         return data if ability_fields.empty?
 
-        data['abilities'] = ability_fields.values.map do |ability_data|
+        data['abilities'] = ability_fields.values.each_with_index.map do |ability_data, idx|
           data_attrs = ability_data.slice('Id', 'Summary', 'URL')
           desc       = ability_data['Description']
           desc       = desc.nil? ? {} : desc['itemDescription']
 
+          data_attrs['god']             = data['name']
+          data_attrs['ability_number']  = idx + 1
           Ability.new(data_attrs.merge(desc))
         end
 
