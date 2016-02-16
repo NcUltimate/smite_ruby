@@ -5,7 +5,7 @@ module Smite
     def initialize(god_name, data, params = { level: 1 })
       super(data)
       @name   = god_name
-      @items  = params[:items] || []
+      @items  = (params[:items] || []).uniq[0..5]
       @level  = [[(params[:level].to_i - 1), 19].min, 0].max
     end
 
@@ -20,10 +20,24 @@ module Smite
     def bonus_from_items
       return @item_bonus unless @item_bonus.nil?
 
-      @item_bonus = default_bonus
+      @item_bonus = {}
+      @item_bonus[:flat] = default_bonus.dup
+      @item_bonus[:perc] = default_bonus.dup
+
+      physical  = Smite::Game.god(name).physical?
+      @items    = @items.select do |item|
+        physical ? item.physical? : item.magic?
+      end
+      return @item_bonus if @items.empty?
+
       items.map(&:effects).flatten.select do |effect|
         next unless attributes.include?(effect.attribute)
-        @item_bonus[effect.attribute.to_sym] += effect.amount
+
+        if effect.percentage?
+          @item_bonus[:perc][effect.attribute.to_sym] += effect.amount/100.0
+        else
+          @item_bonus[:flat][effect.attribute.to_sym] += effect.amount
+        end
       end
 
       @item_bonus
@@ -50,11 +64,12 @@ module Smite
     private
 
     def value_for(attribute)
-      from_items = bonus_from_items[attribute.to_sym]
+      flat_from_items = bonus_from_items[:flat][attribute.to_sym]
+      perc_from_items = bonus_from_items[:perc][attribute.to_sym]
       base       = data[attribute.to_s]
       scaling    = send("#{attribute}_per_level".to_sym) * level.to_f
 
-      (from_items + base + scaling).round(2)
+      ((flat_from_items + base + scaling) * (perc_from_items + 1)).round(2)
     end
 
     def default_bonus

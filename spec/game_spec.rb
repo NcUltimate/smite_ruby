@@ -24,7 +24,7 @@ RSpec.describe Smite::Game do
 
   describe '#devices' do
     it 'returns a list of Smite::Items' do
-      expect(Smite::Game.devices.count).to eq(7)
+      expect(Smite::Game.devices.count).to eq(13)
       Smite::Game.devices.each do |device|
         expect(device.class).to eq(Smite::Item)
       end

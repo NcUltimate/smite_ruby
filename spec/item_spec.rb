@@ -6,7 +6,7 @@ RSpec.describe Smite::Item do
   let(:iron_mail)       { Smite::Game.item('Iron Mail') }
   let(:soul_reaver)     { Smite::Game.item('Soul Reaver') }
   let(:sovereignty)     { Smite::Game.item('Sovereignty') }
-  let(:aegis)           { Smite::Game.item('Improved Aegis') }
+  let(:aegis)           { Smite::Game.item('Sanctuary') }
   let(:potion)          { Smite::Game.item('Potion of Magical Might') }
   let(:smite_obj)       { sovereignty }
 

@@ -11,7 +11,7 @@ module Smite
     end
 
     def ranged?
-      !!(type =~ /Ranged/i)
+      !!(type =~ /Ranged/i) || !!(name =~ /Sylvanus/i)
     end
 
     def melee?
@@ -19,7 +19,7 @@ module Smite
     end
 
     def physical?
-      !!(type =~ /Physical/i)
+      !!(type =~ /Physical/i) || !!(role =~ /Hunter|Warrior|Assassin/i)
     end
 
     def magic?

@@ -52,6 +52,8 @@ module Smite
         stat_fields['movement_speed'] = stat_fields.delete('speed')
         stat_fields['mp5']            = stat_fields.delete('mana_per_five')
         stat_fields['hp5']            = stat_fields.delete('health_per_five')
+        stat_fields['physical_power'] = 0
+        stat_fields['magical_power']  = 0
         data['stats'] = GodStats.new(data['name'], stat_fields)
         data.except(*stats_filter_fields)
       end

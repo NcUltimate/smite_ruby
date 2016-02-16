@@ -11,8 +11,28 @@ module Smite
       end
     end
 
+    def self.physical_item_trees
+      [7573, 7827, 7922, 8268, 9624, 9812, 9825, 9830, 9833, 10190, 10662, 11468, 12667, 12671]
+    end
+
+    def self.magical_item_trees
+      [7610, 8247, 9631, 9847, 9849, 9855, 9858, 9860, 10603, 11123]
+    end
+
+    def item_tree_root
+      return @root unless @root.nil?
+      @root     = self
+      child_id  = @root.child_item_id
+
+      until child_id == 0
+        @root     = Smite::Game.item(child_id)
+        child_id  = @root.child_item_id
+      end
+      @root
+    end
+
     def active?
-      type == 'Active'
+      type == 'Active' || type == 'Relic'
     end
     alias_method :relic?, :active?
 
@@ -57,24 +77,13 @@ module Smite
     end
 
     def physical?
-      return @physical unless @physical.nil?
-
-      @physical = !(passive.downcase =~ /magic(al)? (pow|pen|lif|dam)/)
-      @physical &&= !effects.map(&:attribute).any? do |eff|
-        eff =~ /magic(al)?_(pow|pen|lif|dam)/
-      end
-      @physical
+      @physical ||= !Smite::Item.magical_item_trees.include?(item_tree_root.item_id)
     end
 
     def magic?
-      return @magic unless @magic.nil?
-
-      @magic = !(passive.downcase =~ /physical (pow|pen|lif|dam)/)
-      @magic &&= !effects.map(&:attribute).any? do |eff|
-        eff =~ /physical_(pow|pen|lif|dam)/
-      end
-      @magic
+      @magic ||= !Smite::Item.physical_item_trees.include?(item_tree_root.item_id)
     end
+    alias_method :magical?, :magic?
 
     def inspect
       "#<Smite::Item #{item_id} '#{device_name}'>"

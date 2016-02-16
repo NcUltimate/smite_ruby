@@ -34,12 +34,13 @@ RSpec.describe Smite::GodStats do
   end
 
   def scaling_calc(stats, attribute)
-    from_items  = stats.bonus_from_items[attribute.to_sym]
+    flat_from_items  = stats.bonus_from_items[:flat][attribute.to_sym]
+    perc_from_items  = stats.bonus_from_items[:perc][attribute.to_sym]
     base        = stats.data[attribute]
     scaling     = stats.send("#{attribute}_per_level".to_sym).to_f
     scaling     *= stats.level.to_f
 
-    (from_items + base + scaling).round(2)
+    ((flat_from_items + base + scaling) * (1 + perc_from_items)).round(2)
   end
 
   %w[ movement_speed health mana
