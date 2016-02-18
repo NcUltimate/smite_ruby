@@ -85,6 +85,10 @@ module Smite
         @actives ||= devices.select(&:active?)
       end
 
+      def item_effects
+        @effects ||= devices.map(&:active_effects).flatten.map(&:attribute).uniq
+      end
+
       private
 
       def device_hash

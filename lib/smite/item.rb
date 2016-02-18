@@ -3,10 +3,10 @@ module Smite
 
     def initialize(data)
       super(data)
-      effects              = @data.delete('item_description')
-      @data['passive']     = effects['SecondaryDescription']
-      @data['description'] = effects['Description']
-      @data['effects']     = effects['Menuitems'].map do |eff|
+      effects                 = @data.delete('item_description')
+      @data['passive']        = effects['SecondaryDescription']
+      @data['description']    = effects['Description']
+      @data['active_effects'] = effects['Menuitems'].map do |eff|
         ItemEffect.new(device_name, eff)
       end
     end
@@ -56,6 +56,22 @@ module Smite
       !!(passive =~ /AURA/)
     end
 
+    def stacking?(perma_stacks = false)
+      return false unless passive?
+      if perma_stacks
+        !!(passive =~ /(per|for each).+?kill/i)
+      else
+        !!(passive =~ /stack/i)
+      end
+    end
+
+    def max_stacks
+      @max_stacks = 1 unless stacking?
+      return @max_stacks unless @max_stacks.nil?
+
+      @max_stacks ||= passive.match(/max\.?.+?(\d+)/i)[1].to_i
+    end
+
     def cost
       return @cost unless @cost.nil?
       @cost     = price
@@ -87,6 +103,38 @@ module Smite
 
     def inspect
       "#<Smite::Item #{item_id} '#{device_name}'>"
+    end
+
+    def effects
+      active_effects + passive_effects
+    end
+
+    def passive_effects
+      @passive_effects = [] unless passive?
+      return @passive_effects unless @passive_effects.nil?
+
+      fx    = Smite::Game.item_effects + ['magical_protection', 'lifesteal']
+      fx    = fx.map { |e| e.tr('_', ' ') + "s?" }.join('\b|')
+      amt   = '(\+?[\.\d]+%?)'
+
+      r1 = /gain #{amt} (#{fx}\b)(?: and #{amt} (#{fx}\b))?/i
+      r2 = /increas(?:es?|ing)?(?: your)? (#{fx}\b) by #{amt}(?: and (#{fx}\b) by #{amt})?/i
+      r3 = /grant(?:s you|ing)? #{amt} (#{fx}\b) and #{amt} (#{fx}\b)/i
+      r4 = /your (#{fx}\b) increases by #{amt}/i
+
+      scanned = [r1,r2,r3,r4].inject([]) { |arr, regex| arr << (passive.scan(regex)[0]||[]).compact }
+      scanned = scanned.reject(&:empty?)
+
+      scanned = scanned.map do |e|
+        e.each_slice(2).to_a.map do |a|
+          a = a.minmax
+          a[1] = a[1][-1] == 's' ? a[1][0...-1] : a[1]
+          { 'Description' => a[1], 'Value' => a[0] }
+        end
+      end
+      @passive_effects = scanned.flatten.map do |effect_data|
+        ItemEffect.new(name, effect_data)
+      end
     end
   end
 end

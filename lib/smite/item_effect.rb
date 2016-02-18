@@ -1,10 +1,24 @@
 module Smite
-  class ItemEffect < Smite::Object
+  class ItemEffect
+    attr_accessor :attribute, :amount, :percentage
     attr_reader :device_name
 
-    def initialize(item, data)
+    def initialize(item, data = {})
       @device_name = item
-      super(DataTransform.transform_item_effect(data))
+      return if data.empty?
+
+      effect = data.delete('Description').tr(' ','')
+      effect = ActiveSupport::Inflector.underscore(effect)
+
+      @attribute = effect
+      @attribute = 'magic_protection' if effect == 'magical_protection'
+      @attribute = 'magical_power'    if effect == 'magic_power'
+
+      value       = data.delete('Value')
+      @percentage = value[/%/]
+
+      value   = value.tr('+', '').to_i
+      @amount = value
     end
 
     def percentage?

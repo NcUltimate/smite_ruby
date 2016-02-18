@@ -14,6 +14,4 @@ RSpec.describe Smite::ItemEffect do
       expect(smite_obj.percentage?).to eq(false)
     end
   end
-
-  it_behaves_like 'a Smite::Object'
 end

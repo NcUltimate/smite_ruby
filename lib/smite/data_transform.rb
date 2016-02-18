@@ -58,20 +58,6 @@ module Smite
         data.except(*stats_filter_fields)
       end
 
-      def transform_item_effect(data)
-        return unless data['Description'] and data['Value']
-
-        effect = data.delete('Description').tr(' ','')
-        effect = ActiveSupport::Inflector.underscore(effect)
-        data['attribute'] = effect
-
-        value = data.delete('Value')
-        data['percentage'] = value[/%/]
-        value = value.tr('+', '').to_i
-        data['amount'] = value
-        data
-      end
-
       def transform_match_achievements(data)
         ach_fields = data.slice(*match_achievement_map_fields)
         return data if ach_fields.empty?

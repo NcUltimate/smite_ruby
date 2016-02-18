@@ -1,8 +1,8 @@
 $:.push File.expand_path("../lib", __FILE__)
 Gem::Specification.new do |s|
   s.name          = 'smite_ruby'
-  s.version       = '1.4.673'
-  s.date          = '2016-02-16'
+  s.version       = '1.4.70'
+  s.date          = '2016-02-18'
   s.summary       = 'Ruby Smite API'
   s.description   = 'Ruby Client for consuming the Smite API'
   s.authors       = ['NcUltimate']
