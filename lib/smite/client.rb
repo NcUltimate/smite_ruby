@@ -8,7 +8,7 @@ module Smite
       @dev_id     = dev_id
       @auth_key   = auth_key
       @lang       = [1,2,3,7,9,10,11,12,13].include?(lang) ? lang : 1
-      @created    = Time.now - 20 * 60
+      @created    = Time.new(0)
       create_session
     end
 
@@ -108,12 +108,21 @@ module Smite
       return @session_id if valid_session?
 
       response      = api_call('createsession', [], false)
+      unless response && response['ret_msg'] == 'Approved'
+        return @session_id = nil
+      end
+
       @session_id   = response['session_id']
       @created      = Time.now
+      @session_id
     end
 
     def valid_session?
       (created + (15 * 60)) > Time.now
+    end
+
+    def ping
+      self.class.get('/pingjson')
     end
 
     private

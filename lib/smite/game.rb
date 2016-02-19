@@ -9,7 +9,8 @@ module Smite
       end
 
       def device(name_or_id)
-        idx = device_hash[name_or_id.to_s.downcase]
+        key = name_or_id.to_s.downcase.gsub(/[^\w]/,'')
+        idx = device_hash[key]
         idx.nil? ? nil : devices[idx]
       end
       alias_method :item, :device
@@ -17,7 +18,8 @@ module Smite
       alias_method :active, :device
 
       def god(name_or_id)
-        idx = god_hash[name_or_id.to_s.downcase]
+        key = name_or_id.to_s.downcase.gsub(/[^\w]/,'')
+        idx = god_hash[key]
         idx.nil? ? nil : gods[idx]
       end
 
@@ -93,15 +95,18 @@ module Smite
 
       def device_hash
         @device_hash ||= (0...devices.count).each_with_object({}) do |idx, hash|
-          hash[devices[idx].item_id.to_s]          = idx
-          hash[devices[idx].device_name.downcase]  = idx
+          name_key = devices[idx].name.downcase.gsub(/[^\w]/,'')
+
+          hash[devices[idx].item_id.to_s] = idx
+          hash[name_key]                  = idx
         end
       end
 
       def god_hash
         @god_hash ||= (0...gods.count).each_with_object({}) do |idx, hash|
-          hash[gods[idx].id.to_s]        = idx
-          hash[gods[idx].name.downcase]  = idx
+          name_key = gods[idx].name.downcase.gsub(/[^\w]/,'')
+          hash[gods[idx].id.to_s] = idx
+          hash[name_key]          = idx
         end
       end
     end

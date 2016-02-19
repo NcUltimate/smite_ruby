@@ -4,26 +4,43 @@ module Smite
     
     def initialize(god_name, data, params = { level: 0 })
       super(data)
-      @name = god_name
-
-      # make sure ratatoskr only has 1 acorn and items are unique
-      @items  = (params[:items] || []).uniq do |a|
-        a.name =~ /acorn/i ? 'acorn' : a.name
-      end
-
-      # make sure only 6 items total
-      @items = @items[0..5]
-
-      # make sure ratatoskr has at least 1 acorn
-      if god_name.downcase == 'ratatoskr'
-        if !@items.any? { |i| i.name =~ /acorn/i }
-          @items[0] = Smite::Game.item('magic acorn')
-        end
-      end
+      @name   = god_name
+      @items  = params[:items] || []
 
       # make sure level is between 0 and 20 (0 for base stats)
       @level  = [[params[:level].to_i, 20].min, 0].max
       @stacks = params[:stacks] || {}
+    end
+
+    def items
+      return @filtered_items unless @filtered_items.nil?
+
+      # only allow items
+      @items.select!(&:item?)
+
+      # make sure ratatoskr only has 1 acorn and items are unique
+      @items  = @items.uniq do |a|
+        a.name =~ /acorn/i ? 'acorn' : a.name
+      end
+
+      # make sure there are only 6 items total
+      @items = @items[0..5]
+
+      # make sure ratatoskr has at least 1 acorn
+      if @name.downcase == 'ratatoskr'
+        if !@items.any? { |i| i.name =~ /acorn/i }
+          @items[0] = Smite::Game.item('magic acorn')
+        end
+      else
+        # and that everyone else has none
+        @items.reject! { |item| item.name =~ /acorn/i }
+      end
+
+      # only accept physical items for physical gods and vice versa
+      physical        = Smite::Game.god(@name).physical?
+      @filtered_items = @items.select do |item|
+        physical ? item.physical? : item.magic?
+      end
     end
 
     def at_level(new_level)
@@ -41,12 +58,6 @@ module Smite
       @item_bonus = {}
       @item_bonus[:flat] = default_bonus.dup
       @item_bonus[:perc] = default_bonus.dup
-
-      # only accept physical items for physical gods and vice versa
-      physical  = Smite::Game.god(@name).physical?
-      @items    = @items.select do |item|
-        physical ? item.physical? : item.magic?
-      end
       return @item_bonus if items.empty?
 
       bonus_from_active_item_effects
@@ -167,11 +178,11 @@ module Smite
         case name
         when 'Scylla'
           case level
-          when 0..7   then 0
-          when 8..12  then 20
-          when 13..16 then 40
-          when 17..18 then 60
-          when 19     then 80
+          when 0..8   then 0
+          when 9..13  then 20
+          when 14..17 then 40
+          when 18..19 then 60
+          when 20     then 80
           end
         when 'Ares'
           30 * items.count(&:aura?)

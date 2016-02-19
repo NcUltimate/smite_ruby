@@ -17,7 +17,7 @@ module Smite
       value       = data.delete('Value')
       @percentage = value[/%/]
 
-      value   = value.tr('+', '').to_i
+      value   = value.tr('+', '').to_f
       @amount = value
     end
 
