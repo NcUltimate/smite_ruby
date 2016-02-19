@@ -1,8 +1,8 @@
 module Smite
   class GodStats < Smite::Object
-    attr_reader :name, :level, :items
+    attr_reader :name, :level, :items, :stacks
     
-    def initialize(god_name, data, params = { level: 1, stacks: false })
+    def initialize(god_name, data, params = { level: 1 })
       super(data)
       @name = god_name
 
@@ -23,15 +23,16 @@ module Smite
 
       # make sure level is between 0 and 19 (1 and 20)
       @level  = [[(params[:level].to_i - 1), 19].min, 0].max
-      @stacks = params[:stacks]
+      @stacks = params[:stacks] || {}
     end
 
     def at_level(new_level)
-      GodStats.new(name, @data, { level: new_level, items: items })
+      GodStats.new(name, @data, { level: new_level, items: items, stacks: stacks })
     end
 
-    def with_items(new_items, max_stacks = false)
-      GodStats.new(name, @data, { level: level + 1, items: new_items, stacks: max_stacks })
+    def with_items(new_items, stacks = @stacks)
+      stacks.delete_if { |k,v| v.nil? }
+      GodStats.new(name, @data, { level: level + 1, items: new_items, stacks: stacks })
     end
 
     def bonus_from_items
@@ -129,7 +130,13 @@ module Smite
         item.passive_effects.each do |effect|
           next unless attributes.include?(effect.attribute)
 
-          multiplier = @stacks ? item.max_stacks : (item.stacking? ? 0 : 1)
+          base_stacks = item.stacking? ? 0 : 1
+          multiplier =  if @stacks.empty? || @stacks[item.name.downcase].nil?
+            base_stacks
+          else
+            [ [@stacks[item.name.downcase], base_stacks].max , item.max_stacks ].min.to_i
+          end
+
           if effect.percentage?
             @item_bonus[:perc][effect.attribute.to_sym] += multiplier * effect.amount/100.0
           else
@@ -162,7 +169,7 @@ module Smite
           when 19     then 80
           end
         when 'Ares'
-          30 * items.select(&:aura?).count
+          30 * items.count(&:aura?)
         when 'Kukulkan'
           mana * 0.05
         else
@@ -173,8 +180,14 @@ module Smite
 
     def from_item_passive(attribute)
       case attribute.to_s
-      when /power/i
-        if items.any? { |i| i.name =~ /Book of Thoth|Transcendence/i }
+      when /magical_power/i
+        if items.any? { |i| i.name =~ /Book of Thoth/i }
+          mana * 0.03
+        else
+          0
+        end
+      when /physical_power/i
+        if items.any? { |i| i.name =~ /Transcendence/i }
           mana * 0.03
         else
           0
