@@ -2,7 +2,7 @@ module Smite
   class GodStats < Smite::Object
     attr_reader :name, :level, :items, :stacks
     
-    def initialize(god_name, data, params = { level: 1 })
+    def initialize(god_name, data, params = { level: 0 })
       super(data)
       @name = god_name
 
@@ -21,8 +21,8 @@ module Smite
         end
       end
 
-      # make sure level is between 0 and 19 (1 and 20)
-      @level  = [[(params[:level].to_i - 1), 19].min, 0].max
+      # make sure level is between 0 and 20 (0 for base stats)
+      @level  = [[params[:level].to_i, 20].min, 0].max
       @stacks = params[:stacks] || {}
     end
 
@@ -32,7 +32,7 @@ module Smite
 
     def with_items(new_items, stacks = @stacks)
       stacks.delete_if { |k,v| v.nil? }
-      GodStats.new(name, @data, { level: level + 1, items: new_items, stacks: stacks })
+      GodStats.new(name, @data, { level: level, items: new_items, stacks: stacks })
     end
 
     def bonus_from_items
@@ -63,6 +63,10 @@ module Smite
       magical_power
     end
 
+    def attack_speed
+      [value_for(:attack_speed), 2.5].min
+    end
+
     def movement_speed
       raw_speed = value_for(:movement_speed)
 
@@ -85,7 +89,7 @@ module Smite
     end
 
     def inspect
-      "#<Smite::GodStats '#{name}' Level #{level + 1}>"
+      "#<Smite::GodStats '#{name}' Level #{level}>"
     end
 
     def method_missing(method)
@@ -105,6 +109,7 @@ module Smite
 
       passive     = from_god_passive(attribute) + from_item_passive(attribute)
       base        = data[attribute.to_s]
+    
       flat_amount = (flat_from_items + base + scaling + passive)
 
       ret = (flat_amount * (perc_from_items + 1)).round(2)
