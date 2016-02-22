@@ -49,7 +49,15 @@ module Smite
 
     def with_items(new_items, stacks = @stacks)
       stacks.delete_if { |k,v| v.nil? }
-      GodStats.new(name, @data, { level: level, items: new_items, stacks: stacks })
+      stack_map = new_items.each_with_object({}) do |item, hash|
+        base_stacks = item.stacking? ? 0 : 1
+
+        given_stacks    = stacks[item.name.downcase] || base_stacks
+        actual_stacks   = [given_stacks, base_stacks].max
+        actual_stacks   = [actual_stacks, item.max_stacks ].min.to_i
+        hash[item.name.downcase] = actual_stacks
+      end
+      GodStats.new(name, @data, { level: level, items: new_items, stacks: stack_map })
     end
 
     def bonus_from_items
@@ -146,13 +154,7 @@ module Smite
         item.passive_effects.each do |effect|
           next unless attributes.include?(effect.attribute)
 
-          base_stacks = item.stacking? ? 0 : 1
-          multiplier =  if @stacks.empty? || @stacks[item.name.downcase].nil?
-            base_stacks
-          else
-            [ [@stacks[item.name.downcase], base_stacks].max , item.max_stacks ].min.to_i
-          end
-
+          multiplier =  @stacks[item.name.downcase]
           if effect.percentage?
             @item_bonus[:perc][effect.attribute.to_sym] += multiplier * effect.amount/100.0
           else
